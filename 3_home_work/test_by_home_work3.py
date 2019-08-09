@@ -114,7 +114,7 @@ class TestClass:
 
     """Description: этот тест  № 9  объединяет множество из элементов,
     встречающихся в одном множестве, но не встречающиеся в обоих"""
-    def test_nine_repeat_tuple(self, function_fixture, module_fixture):
+    def test_nine_new_set_without_repeat(self, function_fixture, module_fixture):
         print("Этот тест объединяет множество из элементов,"
               "встречающихся в одном множестве, но не встречающиеся в обоих")
         a = {1, 32, 2, 5, 6, 89, 23, 43, 12, 56, 71, 3}
@@ -123,7 +123,7 @@ class TestClass:
         assert (c == {4, 65, 7, 8, 5, 71, 43, 12, 23, 90})
 
     """Description: этот тест  № 10  объединяет множества в одно"""
-    def test_ten_repeat_tuple(self, class_fixture, session_fixture):
+    def test_ten_new_set(self, class_fixture, session_fixture):
         print("Этот тест объединяет множество  объединяет множества в одно,")
         a = {1, 32, 2, 5, 6, 89, 23, 43, 12, 56, 71, 3}
         b = {1, 2, 3, 4, 6, 7, 89, 65, 32, 3, 4, 1, 7, 8, 90, 56, 3, 2}
