@@ -3,7 +3,7 @@ import pytest
 
 @pytest.mark.parametrize('output_id', [
     ([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])])
-def test_api_one_typicode_all_users(api_client, output_id, fixture_api_response_ok):
+def test_api_one_typicode_all_users(api_client, output_id):
     """Description: тест по домашнему заданию № 4 api:  https://jsonplaceholder.typicode.com/. запрос на список пользователей,
     """
     res = api_client.get(path="/users").json()
@@ -21,7 +21,7 @@ def test_api_one_typicode_all_users(api_client, output_id, fixture_api_response_
 @pytest.mark.parametrize('input_id, output_id, output_userId, output_title', [
     ('4', 4, 1, 'eum et est occaecati'),
     ('35', 35, 4, 'id nihil consequatur molestias animi provident')])
-def test_api_two_typicode_posts_id(api_client, input_id, output_id, output_userId, output_title, fixture_api_response_ok):
+def test_api_two_typicode_posts_id(api_client, input_id, output_id, output_userId, output_title):
     """Description: тест по домашнему заданию № 4 api:  https://jsonplaceholder.typicode.com/. запрос на сообщение по id"""
     res = api_client.get(path="/posts/" + input_id).json()
     # Проверяем что возвращаемые параметры верны
@@ -36,7 +36,7 @@ def test_api_two_typicode_posts_id(api_client, input_id, output_id, output_userI
                                        'voluptatem qui deserunt dolorum in voluptates similique et qui',
                                        'qui unde recusandae omnis ut explicabo neque magni veniam',
                                        'vel autem quia in modi velit'])])
-def test_api_three_typicode_posts_id(api_client, input_postId, output_id, output_name, fixture_api_response_ok):
+def test_api_three_typicode_posts_id(api_client, input_postId, output_id, output_name):
     """Description: тест по домашнему заданию № 4 api:  https://jsonplaceholder.typicode.com/. запрос на комментарии к посту
      по id поста"""
     res = api_client.get(path="/comments",
@@ -62,7 +62,7 @@ def test_api_three_typicode_posts_id(api_client, input_postId, output_id, output
                          [(663773, 'this test title')])
 @pytest.mark.parametrize('output_id, output_title',
                          [('663773', 'this test title')])
-def test_api_four_create_resource(api_client, input_id, output_id, input_title, output_title, fixture_api_response_ok):
+def test_api_four_create_resource(api_client, input_id, output_id, input_title, output_title):
     """Description: тест по домашнему заданию № 4 api:  https://jsonplaceholder.typicode.com/. создание нового ресурса
          по id поста"""
     res = api_client.post(
@@ -79,7 +79,7 @@ def test_api_four_create_resource(api_client, input_id, output_id, input_title, 
 
 @pytest.mark.parametrize('output_id', [
     (100)])
-def test_api_five_typicode_all_albums(api_client, output_id, fixture_api_response_ok):
+def test_api_five_typicode_all_albums(api_client, output_id):
     """Description: тест по домашнему заданию № 4 api:  https://jsonplaceholder.typicode.com/. запрос на все альбомы
     проверяем колисество полученных записей,
     """
