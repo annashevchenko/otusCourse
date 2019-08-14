@@ -63,7 +63,7 @@ def test_api_three_typicode_posts_id(api_client, input_postId, output_id, output
 @pytest.mark.parametrize('output_id, output_title',
                          [('663773', 'this test title')])
 def test_api_four_create_resource(api_client, input_id, output_id, input_title, output_title, fixture_api_response_ok):
-    """Description: тест по домашнему заданию № 4 api:  https://jsonplaceholder.typicode.com/. создание нового поста
+    """Description: тест по домашнему заданию № 4 api:  https://jsonplaceholder.typicode.com/. создание нового ресурса
          по id поста"""
     res = api_client.post(
         path="/posts",
