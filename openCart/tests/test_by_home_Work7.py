@@ -17,7 +17,6 @@ def fixture_create_random_string():
     return string_random
 
 
-
 def test_seach_by_text(driver):
     """Тест находит поле поиска, вводит в поле данны для поиска, нажимает кнопку найти. Находит заголовок результат поиска"""
     find_text = "mac"
@@ -28,16 +27,12 @@ def test_seach_by_text(driver):
     driver.find_element_by_xpath("*//h1[text()='Search - " + find_text + "']")
 
 
-
-
 def test_open_by_directory(driver):
     """Тест открывает меню Desktops->Mac"""
     ActionChains(driver).move_to_element(driver.find_element_by_link_text("Desktops")).click().pause(0.5).perform()
     driver.find_element_by_xpath(MainPage.open_menu.format("Desktops"))
     driver.find_element_by_link_text("Mac (1)").click()
     driver.find_element_by_xpath(MainPage.menu_mac.format("Mac"))
-
-
 
 
 def test_open_product_cart(driver):
@@ -49,7 +44,6 @@ def test_open_product_cart(driver):
     driver.find_element_by_xpath(ProductCartPage.header_cart_by_name.format("Apple Cinema 30\""))
 
 
-
 def test_open_product_cart_add_in_wishList(driver):
     """Тест открывает карточку продукта ->Mонитор Apple Cinema 30\" и добавляет его в wishList"""
     ActionChains(driver).move_to_element(driver.find_element_by_link_text("Components")).click().pause(0.5).perform()
@@ -57,8 +51,6 @@ def test_open_product_cart_add_in_wishList(driver):
     driver.find_element_by_link_text("Monitors (2)").click()
     driver.find_element_by_css_selector(ProductCartPage.image_in_cart_by_name.format("Apple Cinema 30\"")).click()
     driver.find_element_by_css_selector(ProductCartPage.button_WishList).click()
-
-
 
 
 def test_register_new_account(driver, fixture_create_random_string):
@@ -91,8 +83,3 @@ def test_register_new_account(driver, fixture_create_random_string):
     driver.find_element_by_xpath(LoginPage.message_in_header.format("Your Account Has Been Created!"))
     driver.find_element_by_css_selector(LoginPage.сontinue_account_created).click()
     driver.find_element_by_xpath(LoginPage.header_in_account.format("My Account"))
-
-
-
-
-
