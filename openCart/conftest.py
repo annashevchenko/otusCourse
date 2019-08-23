@@ -25,13 +25,13 @@ def driver(request):
     if browser == 'chrome':
         options = webdriver.ChromeOptions()
         # options.add_argument('--headless')
-        options.add_argument('window-size=1920x935')
+        options.add_argument('--start-maximized')
         wd = webdriver.Chrome(options=options)
         wd.get(request.config.getoption("--url"))
     if browser == 'firefox':
         options = webdriver.FirefoxOptions()
         # options.add_argument('--headless')
-        options.add_argument('window-size=1920x935')
+        options.add_argument('--start-maximized')
         wd = webdriver.Firefox(options=options)
         wd.get(request.config.getoption("--url"))
     if browser == 'ie':
