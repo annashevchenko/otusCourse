@@ -1,7 +1,7 @@
 """описание элементов главной страницы OpenCart"""
 
 
-class MainPage:
+class MainLocators:
     '''поле поиска'''
     seach = "input[name='search']"
 

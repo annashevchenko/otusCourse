@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 """описание элементов авторизации и регистрации в OpenCart"""
 
 
-class LoginPage:
+class LoginLocators:
     '''поиск элемента панели управления данными пользователя'''
     top_element = "a[title='{0}']"
 

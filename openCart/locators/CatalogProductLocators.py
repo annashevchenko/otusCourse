@@ -1,7 +1,7 @@
 """описание элементов карточки продукта в OpenCart"""
 
 
-class CatalogProductPage:
+class CatalogProductLocators:
     '''поиск кнопки добавить новый продукт Add_new в Product List'''
     button_add_new = "a[data-original-title = 'Add New']"
 
@@ -37,3 +37,10 @@ class CatalogProductPage:
 
     '''поиск в Product List наименование продуктов'''
     img_in_productList = "tbody tr img"
+
+    '''поиск в Product List наименование продуктов'''
+    pagination_in_productList = "*//ul[@class='pagination']//li//a[text()='{0}']"
+
+    '''поиск в Product List наименование продуктов'''
+    active_page = "*//ul[@class='pagination']//li[@class='active']//span[text()='{0}']"
+
