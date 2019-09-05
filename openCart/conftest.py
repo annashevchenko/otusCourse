@@ -1,6 +1,6 @@
 import pytest
-
 from selenium import webdriver
+
 
 
 def pytest_addoption(parser):
@@ -24,8 +24,8 @@ def pytest_addoption(parser):
     )
 
 
-@pytest.fixture(scope="session")
-def driver(request):
+@pytest.fixture()
+def browser(request):
     browser = request.config.getoption("--browser")
     wd = None
     if browser == 'chrome':
@@ -52,6 +52,7 @@ def driver(request):
     else:
         print('Unsupported browser!')
     yield wd
+    request.addfinalizer(wd.close)
 
-    if wd is not None:
-        wd.close()
+
+

@@ -1,7 +1,40 @@
+from selenium.webdriver.common.by import By
+
 """описание элементов карточки продукта в OpenCart"""
 
 
 class CatalogProductLocators:
+    '''находим раздел Catalog в меню'''
+    CATALOG = (By.ID, "menu-catalog")
+
+
+    '''поля для ввода наименования продукта'''
+    NAMEPRODUCT = (By.ID, "input-name1")
+
+    '''поля для ввода meta_tag'''
+    METATEG = (By.ID, "input-meta-title1")
+
+    '''поля для ввода model'''
+    MODEL = (By.ID, "input-model")
+
+    '''поля для ввода model'''
+    NAME = (By.ID, "input-name")
+
+    '''поля для ввода price'''
+    PRICE = (By.ID, "input-price")
+
+    '''поля для ввода quantity'''
+    QUANTITY = (By.ID, "input-quantity")
+
+    '''поля для ввода status'''
+    STATUS = (By.ID, "input-status")
+
+    '''кнопка filter'''
+    FILTER = (By.ID, "button-filter")
+
+    '''кнопка image'''
+    IMAGE = (By.ID, "button-image")
+
     '''поиск кнопки добавить новый продукт Add_new в Product List'''
     button_add_new = "a[data-original-title = 'Add New']"
 
@@ -44,3 +77,11 @@ class CatalogProductLocators:
     '''поиск в Product List наименование продуктов'''
     active_page = "*//ul[@class='pagination']//li[@class='active']//span[text()='{0}']"
 
+    '''поиск в формы для добавления изображения'''
+    modal_image = "div[id='modal-image'][style='display: block;']"
+
+    '''поиск директории'''
+    directory = "a[class='directory']"
+
+    '''поиск  изображения'''
+    image = "a img[title='{0}']"

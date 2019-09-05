@@ -1,17 +1,31 @@
 """описание элементов главной страницы OpenCart"""
+from selenium.webdriver.common.by import By
 
 
 class MainLocators:
     '''поле поиска'''
-    seach = "input[name='search']"
+    search = "input[name='search']"
 
     '''кнопка найти'''
-    seach_button = "div[id = 'search'] button"
+    search_button = "div[id = 'search'] button"
 
     '''проверка на открытие меню Desktops'''
     open_menu = "*//a[@aria-expanded='true'][text()='{0}']"
 
     '''проверка на открытие раздела '''
-    menu_mac = "*//div[@id='content']//h2[text()='{0}']"
+    search_result = "*//h1[text()='Search - {0}']"
 
+    '''находим корзину'''
+    CART = (By.ID, "cart")
 
+    '''сообщение о пустой корзине'''
+    cart_text = "*//div[@id='cart']//p[text()='{0}']"
+
+    '''сообщение о пустой корзине'''
+    directory = "*//a[text()='{0}']"
+
+    '''поиск сообщения после успешных действий  над продуктом продукта'''
+    mess = "div[class='alert alert-success alert-dismissible']"
+
+    '''поиск кнопки закрыть сообщение'''
+    button_close_mess = "button[class='close']"

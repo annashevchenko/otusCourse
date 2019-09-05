@@ -1,7 +1,7 @@
 """описание элементов карточки продукта в OpenCart"""
 
 
-class PProductCartLocators:
+class ProductCartLocators:
     '''поиск карточки товара по названию'''
     image_in_cart_by_name = "div[class='product-thumb'] a img[title='{0}']"
 

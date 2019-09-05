@@ -1,57 +1,116 @@
-from selenium.common.exceptions import NoSuchElementException
-
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.select import Select
 from openCart.pages.BasePage import BasePage
-from openCart.locators import CatalogProductLocators
+from openCart.locators.CatalogProductLocators import CatalogProductLocators
 import time
 
 
 class CatalogPage(BasePage):
 
-    # метод ожидает отображение раздела в меню навигации
-    def open_section_in_menu_navigation(self, text_section):
-        count = 0
-        while count < 10:
-            try:
-                self.driver.find_element_by_link_text(text_section).click()
-                break
-            except NoSuchElementException:
-                count += 1
-                time.sleep(1)
+    # открываем каталог
+    def open_catalog(self):
+        self.driver.find_element(*CatalogProductLocators.CATALOG).click()
+
+    # ожидаем отображение раздела в меню навигации
+    def wait_section_in_menu_navigation(self, text):
+        self._wait_element_with_sleep(By.LINK_TEXT, text)
+
+    # нажимаем кнопку добавить новый продукт
+    def button_add_new_product(self):
+        self.driver.find_element_by_css_selector(CatalogProductLocators.button_add_new).click()
+
+    # указываем наименование продукта
+    def set_product_name(self, text):
+        self.driver.find_element(*CatalogProductLocators.NAMEPRODUCT).send_keys(text)
+
+    # указываем описание продукта
+    def set_product_description(self, text):
+        self.driver.find_element_by_css_selector(CatalogProductLocators.description_product).send_keys(text)
+
+    # указываем наименование продукта
+    def set_product_meta_tag(self, text):
+        self.driver.find_element(*CatalogProductLocators.METATEG).send_keys(text)
+
+    # указываем модель продукта
+    def set_product_model(self, text):
+        self.driver.find_element(*CatalogProductLocators.MODEL).send_keys(text)
+
+    # указываем модель продукта
+    def save_product(self):
+        self.driver.find_element_by_css_selector(CatalogProductLocators.button_save_new_product).click()
+
+     # метод вводит в фильтре значение product_name (наименование)
+    def set_product_name_in_filter(self, text_product_name):
+        self.driver.find_element(*CatalogProductLocators.NAME).send_keys(text_product_name)
+
+    # ожидаем сообщение
+    def wait_menu(self):
+        self._wait_element_(By.CSS_SELECTOR, CatalogProductLocators.menu_search_context)
 
     # метод вводит в фильтре значение price (стоимость)
     def set_product_price_in_filter(self, text_price):
-        self.filter_product_price = self.driver.find_element_by_id("input-price")
-        self.filter_product_price.click()
-        self.filter_product_price.send_keys(text_price)
-
-    # метод вводит в фильтре значение product_name (наименование)
-    def set_product_name_in_filter(self, text_product_name):
-        self.filter_product_name = self.driver.find_element_by_id("input-name")
-        self.filter_product_name.click()
-        self.filter_product_name.send_keys(text_product_name)
-
-
-    # метод вводит в фильтре значение product_model (модель)
-    def set_product_model_in_filter(self, text_product_model):
-        self.filter_product_model = self.driver.find_element_by_id("input-model")
-        self.filter_product_model.click()
-        self.filter_product_model.send_keys(text_product_model)
-
+        self.driver.find_element(*CatalogProductLocators.PRICE).send_keys(text_price)
 
     # метод вводит в фильтре значение product_quantity (количество)
-    def set_product_quantity_in_filter(self, text_product_quantity):
-        self.filter_product_quantity = self.driver.find_element_by_id("input-quantity")
-        self.filter_product_quantity.click()
-        self.filter_product_quantity.send_keys(text_product_quantity)
+    def set_product_quantity_in_filter(self, text_price):
+        self.driver.find_element(*CatalogProductLocators.QUANTITY).send_keys(text_price)
 
+    # метод выбирает в фильтре значение status (статус)
+    def set_product_status_in_filter(self, text):
+        self._select_element(By.ID, "input-status", text)
+
+    # метод нажимает кнопку filter
+    def button_filter(self):
+        self.driver.find_element(*CatalogProductLocators.FILTER).click()
+
+    # находим отфильтрованное значение
+    def find_filter_element(self, text):
+        self.driver.find_element_by_xpath(CatalogProductLocators.product_in_productList.format(text))
+
+    # находим и записываем в список все checkbox в списке, устанавливаем первый
+    def set_checkbox_in_product_list(self):
+        self._select_element_by_index(By.CSS_SELECTOR, CatalogProductLocators.checkbox_in_productList)
+
+    # метод нажимает кнопку удалить продукт
+    def button_delete(self):
+        self.driver.find_element_by_css_selector(CatalogProductLocators.button_delete_product).click()
+
+    # находим и записываем в список все кнопки Edit в списке, нажимаем на первую кнопку
+    def set_buttons_edit_in_product_list(self):
+        self._select_element_by_index(By.CSS_SELECTOR, CatalogProductLocators.buttons_edit_in_productList)
 
     # метод вводит значение price в разделе Date
-    def set_product_price(self, text_price):
-        self.product_price = self.driver.find_element_by_id("input-price")
-        self.product_price.click()
-        self.product_price.clear()
-        self.product_price.send_keys(text_price)
+    def set_product_price(self, text):
+        self._input(*CatalogProductLocators.PRICE, text)
 
+    # метод нажимает кнопку корировать продукт
+    def button_copy(self):
+        self.driver.find_element_by_css_selector(CatalogProductLocators.button_copy_product).click()
 
+    # находим длину списка
+    def len_product_list(self):
+        list_len = self._select_len_list_element(By.CSS_SELECTOR, CatalogProductLocators.checkbox_in_productList)
+        return list_len
 
+    # находим и записываем в список все checkbox в списке, устанавливаем последний
+    def set_last_checkbox_in_product_list(self):
+        self._select_element_by_index(By.CSS_SELECTOR, CatalogProductLocators.checkbox_in_productList, -1)
 
+    # переходи на страницу
+    def open_page(self, text):
+        self.driver.find_element_by_xpath(CatalogProductLocators.pagination_in_productList.format(text)).click()
+
+    # проверяем активную страницу
+    def active_page(self, text):
+        self.driver.find_element_by_xpath(CatalogProductLocators.active_page.format(text))
+
+    # нажимаем кнопку image
+    def set_product_image(self):
+        self.driver.find_element(*CatalogProductLocators.IMAGE).click()
+        self._wait_element_(By.CSS_SELECTOR, CatalogProductLocators.modal_image)
+
+    # нажимаем кнопку image
+    def select_product_image(self, text_image):
+        self.driver.find_element_by_css_selector(CatalogProductLocators.directory).click()
+        self._wait_element_to_clickable(By.CSS_SELECTOR, CatalogProductLocators.image.format(text_image))
+        self.driver.find_element_by_css_selector(CatalogProductLocators.image.format(text_image)).click()
