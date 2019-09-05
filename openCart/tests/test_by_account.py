@@ -40,3 +40,22 @@ def test_register_new_account(browser, fixture_create_random_string):
     browser.find_element_by_css_selector(AccountLocations.сontinue_account_created).click()
     browser.find_element_by_xpath(AccountLocations.header_in_account.format("My Account"))
 
+
+def test_login_account(browser, fixture_create_random_string):
+    """Тест выполняет успешную авторизацию и проверяем разделы"""
+    # открываем раздел авторизации аккаунта
+    AccountPage(browser).open_menu_my_account()
+    browser.find_element_by_xpath(AccountLocations.my_account_Login).click()
+    LoginPage(browser).login_on_page_email("ebizdyrxojrpegb@yandex.ru", "Qazwsx123")
+    AccountPage(browser).header_in_account()
+def test_my_account_information_edit_firstName(browser, fixture_create_random_string):
+    """Тест выполняет успешную авторизацию и изменяем имя в разделе персональной информации"""
+    # открываем раздел авторизации аккаунта
+    AccountPage(browser).open_menu_my_account()
+    browser.find_element_by_xpath(AccountLocations.my_account_Login).click()
+    LoginPage(browser).login_on_page_email("ebizdyrxojrpegb@yandex.ru", "Qazwsx123")
+    AccountPage(browser).open_section_in_account("Edit your account information")
+    AccountPage(browser).set_first_name(fixture_create_random_string)
+    browser.find_element(*AccountLocations.CONTINUE).click()
+    MainPage(browser).wait_message()
+

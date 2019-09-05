@@ -129,3 +129,39 @@ def test_edit_product_in_catalog_price_image(browser, fixture_authorization_admi
     MainPage(browser).wait_message()
 
 
+def test_copy_product_in_catalog(browser, fixture_authorization_admin):
+    """Тест копирует под админом  продукт в каталоге"""
+    # открываем каталог и заходим в Products
+    CatalogPage(browser).open_catalog()
+    CatalogPage(browser).wait_section_in_menu_navigation("Products")
+    browser.find_element_by_link_text("Products").click()
+    # указываем значения для поиска в форме фильтра: наименование продукта
+    CatalogPage(browser).set_product_name_in_filter("HP LP3065")
+    CatalogPage(browser).button_filter()
+    # находим и записываем в список все checkbox в списке, устанавливаем первый,
+    # запоминаем количество продуктов с данным наименованием
+    CatalogPage(browser).set_checkbox_in_product_list()
+    count_product = CatalogPage(browser).len_product_list()
+    # нажимаем кнопку копировать, проверям наличие сообщение об успешной операции, закрываем сообщение
+    CatalogPage(browser).button_copy()
+    MainPage(browser).wait_message()
+    MainPage(browser).button_close_mess()
+    # находим и записываем в список все checkbox в списке, проверяем, что количество продукта увеличилось на 1
+    count_checkbox_after = CatalogPage(browser).len_product_list()
+    # count_product_after = len(checkbox_after)
+    count_checkbox_after == count_product + 1
+    # выбираем послений продукт и удаляем его, подтверждаем удаление, проверям наличие сообщение об успешной
+    CatalogPage(browser).set_last_checkbox_in_product_list()
+    CatalogPage(browser).button_delete()
+    Alert(browser).accept()
+    MainPage(browser).wait_message()
+def test_open_other_page_in_product_list(browser, fixture_authorization_admin):
+    """Тест переходит на другую страницу в Product List"""
+    # открываем каталог и заходим в Products
+    CatalogPage(browser).open_catalog()
+    CatalogPage(browser).wait_section_in_menu_navigation("Products")
+    browser.find_element_by_link_text("Products").click()
+    # нажимаем на страницу 2
+    CatalogPage(browser).open_page("2")
+    # проверяем, что вторая страница стала активной
+    CatalogPage(browser).active_page("2")
