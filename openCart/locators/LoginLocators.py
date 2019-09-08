@@ -1,5 +1,3 @@
-from selenium.webdriver.common.by import By
-
 """описание элементов авторизации и регистрации в OpenCart"""
 
 
@@ -9,8 +7,6 @@ class LoginLocators:
 
     '''поиск radioButton подписки при регистрации нового пользователя'''
     subscribe = "input[name='newsletter'][value='{0}']"
-
-
 
     '''проверка на открытие раздела '''
     message_in_header = "*//div[@id='content']//h1[text()='{0}']"
@@ -26,4 +22,3 @@ class LoginLocators:
 
     '''поиск кнопки login на входе под пользователем '''
     button_user_login = "input[value = 'Login']"
-
