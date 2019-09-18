@@ -6,6 +6,7 @@ from openCart.pages.LoginPage import LoginPage
 from openCart.pages.CatalogPage import CatalogPage
 from openCart.pages.MainPage import MainPage
 
+
 @pytest.fixture
 def fixture_create_random_string():
     """эта фикстура создает произвольную строку из строчных и заглавных букв и цифр"""
@@ -25,6 +26,8 @@ def url_admin(browser, request):
 @pytest.fixture()
 def fixture_authorization_admin(browser, url_admin):
     """эта фикстура выполняет авторизацию под админом"""
+    browser.get_log("browser")
+
     LoginPage(browser).login_on_page("user", "bitnami1")
 
 
@@ -155,6 +158,8 @@ def test_copy_product_in_catalog(browser, fixture_authorization_admin):
     CatalogPage(browser).button_delete()
     Alert(browser).accept()
     MainPage(browser).wait_message()
+
+
 def test_open_other_page_in_product_list(browser, fixture_authorization_admin):
     """Тест переходит на другую страницу в Product List"""
     # открываем каталог и заходим в Products

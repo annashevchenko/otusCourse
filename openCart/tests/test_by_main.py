@@ -4,6 +4,7 @@ import pytest
 from openCart.pages.MainPage import MainPage
 from openCart.locators.MainLocators import MainLocators
 from openCart.locators.ProductCartLocators import ProductCartLocators
+from openCart.logging_openCart import logger
 
 
 @pytest.fixture
@@ -27,6 +28,7 @@ def test_empty_cart(browser):
     """Тест находит пустую корзину, нажимает на нее и получает сообщение"""
     MainPage(browser).click_cart
     browser.find_element_by_xpath(MainLocators.cart_text.format("Your shopping cart is empty!"))
+    browser.get_log('browser')
 
 
 def test_open_by_directory(browser):

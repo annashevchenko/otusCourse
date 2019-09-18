@@ -27,5 +27,8 @@ class MainLocators:
     '''поиск сообщения после успешных действий  над продуктом продукта'''
     mess = "div[class='alert alert-success alert-dismissible']"
 
-    '''поиск кнопки закрыть сообщение'''
-    button_close_mess = "button[class='close']"
+    '''поиск Shopping Cart'''
+    shopping_cart = "a[title='Shopping Cart']"
+
+    '''находим заголовок'''
+    heading = "*//h1[text()='{0}']"
