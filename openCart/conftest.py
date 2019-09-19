@@ -1,18 +1,9 @@
-import urllib
-import pytest
 import datetime
+import pytest
 from selenium import webdriver
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.support.events import EventFiringWebDriver, AbstractEventListener
 from openCart.logging_openCart import logger
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-# from browsermobproxy import Server, Client
-#
-#
-# server = Server()
-# server.start()
-# client = Client("localhost:8080")
-# client.port
-# client.new_har()
 
 
 def pytest_addoption(parser):
@@ -50,19 +41,17 @@ def browser(request):
         wd = EventFiringWebDriver(webdriver.Chrome(desired_capabilities=caps, options=options), MyListener())
         wd.implicitly_wait(request.config.getoption("--wait"))
         wd.get(request.config.getoption("--url"))
-    if browser == 'firefox':
+    elif browser == 'firefox':
         options = webdriver.FirefoxOptions()
-        # options.add_argument('--headless')
         options.add_argument('--start-maximized')
-        # wd = webdriver.Firefox(options=options)
         options.add_argument('--start-maximized')
         options.add_experimental_option('w3c', False)
         caps = DesiredCapabilities.FIREFOX
         caps['loggingPrefs'] = {'browser': 'INFO'}
-        wd = EventFiringWebDriver(webdriver.Chrome(desired_capabilities=caps, options=options), MyListener())
+        wd = EventFiringWebDriver(webdriver.Firefox(desired_capabilities=caps, options=options), MyListener())
         wd.implicitly_wait(request.config.getoption("--wait"))
         wd.get(request.config.getoption("--url"))
-    if browser == 'ie':
+    elif browser == 'ie':
         options = webdriver.IeOptions()
         # options.add_argument('--headless')
         options.add_argument('window-size=1920x935')
@@ -73,7 +62,6 @@ def browser(request):
         print('Unsupported browser!')
     yield wd
     request.addfinalizer(wd.close)
-
 
 class MyListener(AbstractEventListener):
     def before_find(self, by, value, driver):
