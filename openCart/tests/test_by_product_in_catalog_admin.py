@@ -21,12 +21,6 @@ def fixture_create_random_string():
     return string_random
 
 
-@pytest.fixture
-def attach_file(browser):
-    allure.attach(datetime.datetime.now().strftime("%Y%m%d%H:%M:%S") + 'screenshort', browser.get_screenshot_as_png(),
-                  type=AttachmentType.PNG)
-
-
 @pytest.fixture()
 def url_admin(browser, request):
     """эта фикстура возвращает url для входа в openCart под админом"""
