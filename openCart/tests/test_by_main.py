@@ -1,6 +1,7 @@
 import random
 import string
 import pytest
+import allure
 from openCart.pages.MainPage import MainPage
 from openCart.locators.MainLocators import MainLocators
 from openCart.locators.ProductCartLocators import ProductCartLocators

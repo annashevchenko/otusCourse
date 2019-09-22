@@ -1,0 +1,63 @@
+root - INFO - находим поле Username и вводим данные: user
+root - INFO - находим поле Username
+root - INFO - ищем элемент: input-username
+root - INFO - найден элемент: input-username
+root - INFO - Кликаем по полю
+root - INFO - Воодим в поле: user
+root - INFO - изменили значение элемента
+root - INFO - находим поле Password и вводим данные: bitnami1
+root - INFO - находим поле password
+root - INFO - ищем элемент: input-password
+root - INFO - найден элемент: input-password
+root - INFO - Кликаем по полю
+root - INFO - кликнули по элементу: 
+root - INFO - Воодим в поле: bitnami1
+root - INFO - изменили значение элемента
+root - INFO - выполняет вход, по кнопке login
+root - INFO - ищем элемент: button[class = 'btn btn-primary']
+root - INFO - найден элемент: button[class = 'btn btn-primary']
+root - INFO - кликнули по элементу: 
+root - INFO - Открываем Каталог
+root - INFO - ищем элемент: menu-catalog
+root - INFO - найден элемент: menu-catalog
+root - INFO - кликнули по элементу: 
+root - INFO - Ожидаем отображение раздела Products в меню навигации
+root - INFO - Ожидаем на странице элемент
+root - INFO - ищем элемент: Products
+root - INFO - найден элемент: Products
+root - INFO - ищем элемент: Products
+root - INFO - найден элемент: Products
+root - INFO - кликнули по элементу: 
+root - INFO - нажимаем кнопку добавить новый продукт
+root - INFO - ищем элемент: a[data-original-title = 'Add New']
+root - INFO - найден элемент: a[data-original-title = 'Add New']
+root - INFO - кликнули по элементу: 
+root - INFO - Указываем наименование продукта: Ufwctnogqvc9371206472
+root - INFO - ищем элемент: input-name1
+root - INFO - найден элемент: input-name1
+root - INFO - изменили значение элемента
+root - INFO - Указываем описание продукта: This is autoTesting description New Product in Catalog
+root - INFO - ищем элемент: div[class = 'note-editable panel-body']
+root - INFO - найден элемент: div[class = 'note-editable panel-body']
+root - INFO - изменили значение элемента
+root - INFO - Указываем наименование продукта: Ufwctnogqvc9371206472
+root - INFO - ищем элемент: input-meta-title1
+root - INFO - найден элемент: input-meta-title1
+root - INFO - изменили значение элемента
+root - INFO - ищем элемент: Data
+root - INFO - найден элемент: Data
+root - INFO - кликнули по элементу: 
+root - INFO - Указываем модель продукта: Product78729
+root - INFO - ищем элемент: input-model
+root - INFO - найден элемент: input-model
+root - INFO - изменили значение элемента
+root - INFO - Выполняем сохранение
+root - INFO - ищем элемент: button[data-original-title = 'Save']
+root - INFO - найден элемент: button[data-original-title = 'Save']
+root - INFO - кликнули по элементу: 
+root - INFO - Ожидаем сообщение
+root - INFO - Ожидаем на странице элемент
+root - INFO - ищем элемент: div[class='alert alert-success alert-dismissible']
+root - INFO - найден элемент: div[class='alert alert-success alert-dismissible']
+root - INFO - ищем элемент: div[class='alert alert-success alert-dismissible']
+root - INFO - найден элемент: div[class='alert alert-success alert-dismissible']

@@ -1,6 +1,11 @@
 import datetime
+import sys
+
+import allure
 import pytest
 import platform
+
+from allure_commons.types import AttachmentType
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.support.events import EventFiringWebDriver, AbstractEventListener
@@ -31,7 +36,6 @@ def pytest_addoption(parser):
         action="store",
         metavar="NAME",
         help="only run tests matching the environment NAME.")
-
 
 
 @pytest.mark.usefixtures("environment_info")
@@ -69,11 +73,13 @@ def pytest_runtest_makereport(item, call):
 def pytest_configure(config):
     config.addinivalue_line("markers", "env(name): mark test to run only on named environment")
 
+
 def pytest_runtest_setup(item):
     envnames = [mark.args[0] for mark in item.iter_markers(name='env')]
     if envnames:
         if item.config.getoption("-E") not in envnames:
             pytest.skip("test requires env in %r" % envnames)
+
 
 @pytest.fixture(scope="session")
 def environment_info():
@@ -81,6 +87,13 @@ def environment_info():
     linux_dist = platform.linux_distribution()
     return os_platform, linux_dist
 
+
+# @pytest.hookimpl(hookwrapper=True, tryfirst=True)
+# def pytest_runtest_makereport(item, call):
+#     outcome = yield
+#     rep = outcome.get_result()
+#     setattr(item, "rep_" + rep.when, rep)
+#     return rep
 
 @pytest.fixture()
 def browser(request):
@@ -115,8 +128,31 @@ def browser(request):
         wd.get(request.config.getoption("--url"))
     else:
         print('Unsupported browser!')
+    failed_before = request.session.testsfailed
     yield wd
+    if request.session.testsfailed != failed_before:
+        try:
+            allure.attach(wd.get_screenshot_as_png(),
+                          name=request.function.__name__,
+                          attachment_type=allure.attachment_type.PNG)
+        except:
+            pass  # just ignore
+    # Close browser window:
     request.addfinalizer(wd.close)
+
+
+def take_screenshot(browser, test_name):
+    screenshots_dir = "/home/anna/PycharmProjects/homework/openCart/failure_screenshots"
+    screenshots_file_path = "{}/{}.png".format(screenshots_dir, test_name)
+    browser.save_screenshot(
+        screenshots_file_path
+    )
+
+
+def pytest_exception_interact(node, call, report):
+    if report.failed:
+        # call.excinfo contains an ExceptionInfo instance
+        pass
 
 
 class MyListener(AbstractEventListener):
@@ -132,6 +168,8 @@ class MyListener(AbstractEventListener):
     def after_change_value_of(self, element, driver):
         logger.info(msg="изменили значение элемента")
 
-    def on_exception(self, exception, driver):
+    def on_exception(self, exception, error, driver):
         screen_file_name = datetime.datetime.now().strftime("%Y%m%d%H:%M:%S") + '_screenshort.png'
         driver.save_screenshot("/home/anna/PycharmProjects/homework/openCart/screenshorts/" + screen_file_name)
+        allure.attach('screenshot', driver.get_screenshot_as_png(), type=AttachmentType.PNG)
+        return screen_file_name

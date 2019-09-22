@@ -1,0 +1,53 @@
+[32mINFO    [0m root:LoginPage.py:45 находим поле Username и вводим данные: user
+[32mINFO    [0m root:LoginPage.py:9 находим поле Username
+[32mINFO    [0m root:conftest.py:172 ищем элемент: input-username
+[32mINFO    [0m root:conftest.py:175 найден элемент: input-username
+[32mINFO    [0m root:LoginPage.py:12 Кликаем по полю
+[32mINFO    [0m root:LoginPage.py:15 Воодим в поле: user
+[32mINFO    [0m root:conftest.py:181 изменили значение элемента
+[32mINFO    [0m root:LoginPage.py:47 находим поле Password и вводим данные: bitnami1
+[32mINFO    [0m root:LoginPage.py:33 находим поле password
+[32mINFO    [0m root:conftest.py:172 ищем элемент: input-password
+[32mINFO    [0m root:conftest.py:175 найден элемент: input-password
+[32mINFO    [0m root:LoginPage.py:36 Кликаем по полю
+[32mINFO    [0m root:conftest.py:178 кликнули по элементу: 
+[32mINFO    [0m root:LoginPage.py:39 Воодим в поле: bitnami1
+[32mINFO    [0m root:conftest.py:181 изменили значение элемента
+[32mINFO    [0m root:LoginPage.py:49 выполняет вход, по кнопке login
+[32mINFO    [0m root:conftest.py:172 ищем элемент: button[class = 'btn btn-primary']
+[32mINFO    [0m root:conftest.py:175 найден элемент: button[class = 'btn btn-primary']
+[32mINFO    [0m root:conftest.py:178 кликнули по элементу:
+[32mINFO    [0m root:CatalogPage.py:12 Открываем Каталог
+[32mINFO    [0m root:conftest.py:172 ищем элемент: menu-catalog
+[32mINFO    [0m root:conftest.py:175 найден элемент: menu-catalog
+[32mINFO    [0m root:conftest.py:178 кликнули по элементу: 
+[32mINFO    [0m root:CatalogPage.py:18 Ожидаем отображение раздела Products в меню навигации
+[32mINFO    [0m root:BasePage.py:19 Ожидаем на странице элемент
+[32mINFO    [0m root:conftest.py:172 ищем элемент: Products
+[32mINFO    [0m root:conftest.py:175 найден элемент: Products
+[32mINFO    [0m root:conftest.py:172 ищем элемент: Products
+[32mINFO    [0m root:conftest.py:175 найден элемент: Products
+[32mINFO    [0m root:conftest.py:178 кликнули по элементу: 
+[32mINFO    [0m root:CatalogPage.py:72 Указываем price: 0.00
+[32mINFO    [0m root:conftest.py:172 ищем элемент: input-price
+[32mINFO    [0m root:conftest.py:175 найден элемент: input-price
+[32mINFO    [0m root:conftest.py:181 изменили значение элемента
+[32mINFO    [0m root:CatalogPage.py:90 Нажимает кнопку filter
+[32mINFO    [0m root:conftest.py:172 ищем элемент: button-filter
+[32mINFO    [0m root:conftest.py:175 найден элемент: button-filter
+[32mINFO    [0m root:conftest.py:178 кликнули по элементу: 
+[32mINFO    [0m root:CatalogPage.py:102 Находим и записываем в список все checkbox в списке, устанавливаем первый из них
+[32mINFO    [0m root:BasePage.py:53 Выбираем из списка элемент по индексу
+[32mINFO    [0m root:conftest.py:172 ищем элемент: tbody td input[type='checkbox']
+[32mINFO    [0m root:conftest.py:175 найден элемент: tbody td input[type='checkbox']
+[32mINFO    [0m root:conftest.py:178 кликнули по элементу: 
+[32mINFO    [0m root:CatalogPage.py:108 Нажимает кнопку удалить
+[32mINFO    [0m root:conftest.py:172 ищем элемент: button[data-original-title = 'Delete']
+[32mINFO    [0m root:conftest.py:175 найден элемент: button[data-original-title = 'Delete']
+[32mINFO    [0m root:conftest.py:178 кликнули по элементу: 
+[32mINFO    [0m root:MainPage.py:41 Ожидаем сообщение
+[32mINFO    [0m root:BasePage.py:30 Ожидаем на странице элемент
+[32mINFO    [0m root:conftest.py:172 ищем элемент: div[class='alert alert-success alert-dismissible']
+[32mINFO    [0m root:conftest.py:175 найден элемент: div[class='alert alert-success alert-dismissible']
+[32mINFO    [0m root:conftest.py:172 ищем элемент: div[class='alert alert-success alert-dismissible']
+[32mINFO    [0m root:conftest.py:175 найден элемент: div[class='alert alert-success alert-dismissible']

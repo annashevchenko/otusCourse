@@ -1,9 +1,14 @@
-import pytest
-import string
+import datetime
 import random
+import string
+
+import allure
+import pytest
+from allure_commons.types import AttachmentType
 from selenium.webdriver.common.alert import Alert
-from openCart.pages.LoginPage import LoginPage
+
 from openCart.pages.CatalogPage import CatalogPage
+from openCart.pages.LoginPage import LoginPage
 from openCart.pages.MainPage import MainPage
 
 
@@ -16,6 +21,12 @@ def fixture_create_random_string():
     return string_random
 
 
+@pytest.fixture
+def attach_file(browser):
+    allure.attach(datetime.datetime.now().strftime("%Y%m%d%H:%M:%S") + 'screenshort', browser.get_screenshot_as_png(),
+                  type=AttachmentType.PNG)
+
+
 @pytest.fixture()
 def url_admin(browser, request):
     """эта фикстура возвращает url для входа в openCart под админом"""
@@ -23,14 +34,18 @@ def url_admin(browser, request):
     return browser.get("".join([request.config.getoption("--url"), url]))
 
 
+@allure.feature('Тесты по основным операциям в Catalog->Products')
+@allure.story('выполняем авторизацию по admin')
 @pytest.fixture()
 def fixture_authorization_admin(browser, url_admin):
     """эта фикстура выполняет авторизацию под админом"""
     browser.get_log("browser")
-
     LoginPage(browser).login_on_page("user", "bitnami1")
 
 
+@allure.severity(allure.severity_level.CRITICAL)
+@allure.feature('Тесты по основным операциям в Catalog->Products')
+@allure.story('Добавляем новый продукт в каталог')
 def test_add_new_product_in_catalog(browser, fixture_authorization_admin, fixture_create_random_string):
     """Тест добавляет под админом новый продукт в каталог"""
     # открываем каталог и заходим в Products
@@ -51,6 +66,9 @@ def test_add_new_product_in_catalog(browser, fixture_authorization_admin, fixtur
     MainPage(browser).wait_message()
 
 
+@allure.severity(allure.severity_level.TRIVIAL)
+@allure.feature('Тесты по основным операциям в Catalog->Products')
+@allure.story('Находим продукт в каталоге')
 def test_filter_products_in_catalog(browser, fixture_authorization_admin):
     """Тест выполняет фильтрацию продуктов в каталоге под админом"""
     # открываем каталог и заходим в Products
@@ -70,6 +88,9 @@ def test_filter_products_in_catalog(browser, fixture_authorization_admin):
     CatalogPage(browser).find_filter_element("Apple Cinema 30\"")
 
 
+@allure.severity(allure.severity_level.CRITICAL)
+@allure.feature('Тесты по основным операциям в Catalog->Products')
+@allure.story('Удаляем продукт в каталоге')
 def test_delete_product_in_catalog(browser, fixture_authorization_admin):
     """Тест удаляет под админом  продукт в каталоге"""
     # открываем каталог и заходим в Products
@@ -87,6 +108,9 @@ def test_delete_product_in_catalog(browser, fixture_authorization_admin):
     MainPage(browser).wait_message()
 
 
+@allure.severity(allure.severity_level.CRITICAL)
+@allure.feature('Тесты по основным операциям в Catalog->Products')
+@allure.story('Редактируем продукт в каталоге, изменяем стоимость')
 def test_edit_product_in_catalog_price(browser, fixture_authorization_admin):
     """Тест редактирует под админом  продукт в каталоге"""
     # открываем каталог и заходим в Products
@@ -106,6 +130,9 @@ def test_edit_product_in_catalog_price(browser, fixture_authorization_admin):
     MainPage(browser).wait_message()
 
 
+@allure.severity(allure.severity_level.CRITICAL)
+@allure.feature('Тесты по основным операциям в Catalog->Products')
+@allure.story('Редактируем продукт в каталоге, добавялем изображение')
 def test_edit_product_in_catalog_price_image(browser, fixture_authorization_admin):
     """Тест редактирует под админом  продукт в каталоге"""
     # открываем каталог и заходим в Products
@@ -132,6 +159,9 @@ def test_edit_product_in_catalog_price_image(browser, fixture_authorization_admi
     MainPage(browser).wait_message()
 
 
+@allure.severity(allure.severity_level.CRITICAL)
+@allure.feature('Тесты по основным операциям в Catalog->Products')
+@allure.story('Копируем продукт в каталоге')
 def test_copy_product_in_catalog(browser, fixture_authorization_admin):
     """Тест копирует под админом  продукт в каталоге"""
     # открываем каталог и заходим в Products
@@ -160,6 +190,9 @@ def test_copy_product_in_catalog(browser, fixture_authorization_admin):
     MainPage(browser).wait_message()
 
 
+@allure.severity(allure.severity_level.NORMAL)
+@allure.feature('Тесты по основным операциям в Catalog->Products')
+@allure.story('Открываем, другую страницу каталога')
 def test_open_other_page_in_product_list(browser, fixture_authorization_admin):
     """Тест переходит на другую страницу в Product List"""
     # открываем каталог и заходим в Products

@@ -1,0 +1,93 @@
+root - INFO - находим поле Username и вводим данные: user
+root - INFO - находим поле Username
+root - INFO - ищем элемент: input-username
+root - INFO - найден элемент: input-username
+root - INFO - Кликаем по полю
+root - INFO - Воодим в поле: user
+root - INFO - изменили значение элемента
+root - INFO - находим поле Password и вводим данные: bitnami1
+root - INFO - находим поле password
+root - INFO - ищем элемент: input-password
+root - INFO - найден элемент: input-password
+root - INFO - Кликаем по полю
+root - INFO - кликнули по элементу: 
+root - INFO - Воодим в поле: bitnami1
+root - INFO - изменили значение элемента
+root - INFO - выполняет вход, по кнопке login
+root - INFO - ищем элемент: button[class = 'btn btn-primary']
+root - INFO - найден элемент: button[class = 'btn btn-primary']
+root - INFO - кликнули по элементу: 
+root - INFO - Открываем Каталог
+root - INFO - ищем элемент: menu-catalog
+root - INFO - найден элемент: menu-catalog
+root - INFO - кликнули по элементу: 
+root - INFO - Ожидаем отображение раздела Products в меню навигации
+root - INFO - Ожидаем на странице элемент
+root - INFO - ищем элемент: Products
+root - INFO - найден элемент: Products
+root - INFO - ищем элемент: Products
+root - INFO - найден элемент: Products
+root - INFO - кликнули по элементу: 
+root - INFO - Указываем price: 0.00
+root - INFO - ищем элемент: input-price
+root - INFO - найден элемент: input-price
+root - INFO - изменили значение элемента
+root - INFO - Нажимает кнопку filter
+root - INFO - ищем элемент: button-filter
+root - INFO - найден элемент: button-filter
+root - INFO - кликнули по элементу: 
+root - INFO - Находим и записываем в список все кнопки Edit в списке, нажимаем на первую кнопку
+root - INFO - Выбираем из списка элемент по индексу
+root - INFO - ищем элемент: tbody tr td a[data-original-title='Edit']
+root - INFO - найден элемент: tbody tr td a[data-original-title='Edit']
+root - INFO - кликнули по элементу: 
+root - INFO - ищем элемент: Data
+root - INFO - найден элемент: Data
+root - INFO - кликнули по элементу: 
+root - INFO - Вводим значение price: 526 в разделе Date
+root - INFO - Находим элемент
+root - INFO - ищем элемент: input-price
+root - INFO - найден элемент: input-price
+root - INFO - Кликаем по элементу
+root - INFO - кликнули по элементу: 
+root - INFO - Очищаем значение
+root - INFO - изменили значение элемента
+root - INFO - Вводим в поле: 526
+root - INFO - изменили значение элемента
+root - INFO - ищем элемент: Image
+root - INFO - найден элемент: Image
+root - INFO - кликнули по элементу: 
+root - INFO - ищем элемент: thumb-image
+root - INFO - найден элемент: thumb-image
+root - INFO - кликнули по элементу: 
+root - INFO - Нажимаем кнопку image
+root - INFO - ищем элемент: button-image
+root - INFO - найден элемент: button-image
+root - INFO - кликнули по элементу: 
+root - INFO - Ожидаем на странице элемент
+root - INFO - ищем элемент: div[id='modal-image'][style='display: block;']
+root - INFO - найден элемент: div[id='modal-image'][style='display: block;']
+root - INFO - ищем элемент: div[id='modal-image'][style='display: block;']
+root - INFO - найден элемент: div[id='modal-image'][style='display: block;']
+root - INFO - Выбираем изображение: gift-voucher-b irthday.jpg
+root - INFO - ищем элемент: a[class='directory']
+root - INFO - найден элемент: a[class='directory']
+root - INFO - кликнули по элементу: 
+root - INFO - Ожидаем, что элемент будет кликабилен
+root - INFO - ищем элемент: a img[title='gift-voucher-b irthday.jpg']
+root - INFO - найден элемент: a img[title='gift-voucher-b irthday.jpg']
+root - INFO - ищем элемент: a img[title='gift-voucher-b irthday.jpg']
+root - INFO - найден элемент: a img[title='gift-voucher-b irthday.jpg']
+root - INFO - ищем элемент: a img[title='gift-voucher-b irthday.jpg']
+root - INFO - найден элемент: a img[title='gift-voucher-b irthday.jpg']
+root - INFO - кликнули по элементу: 
+root - INFO - Выполняем сохранение
+root - INFO - ищем элемент: button[data-original-title = 'Save']
+root - INFO - найден элемент: button[data-original-title = 'Save']
+root - INFO - кликнули по элементу: 
+root - INFO - Ожидаем сообщение
+root - INFO - Ожидаем на странице элемент
+root - INFO - ищем элемент: div[class='alert alert-success alert-dismissible']
+root - INFO - найден элемент: div[class='alert alert-success alert-dismissible']
+root - INFO - ищем элемент: div[class='alert alert-success alert-dismissible']
+root - INFO - найден элемент: div[class='alert alert-success alert-dismissible']

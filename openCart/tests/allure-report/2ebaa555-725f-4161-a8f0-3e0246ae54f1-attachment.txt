@@ -1,0 +1,63 @@
+[32mINFO    [0m root:LoginPage.py:45 находим поле Username и вводим данные: user
+[32mINFO    [0m root:LoginPage.py:9 находим поле Username
+[32mINFO    [0m root:conftest.py:160 ищем элемент: input-username
+[32mINFO    [0m root:conftest.py:163 найден элемент: input-username
+[32mINFO    [0m root:LoginPage.py:12 Кликаем по полю
+[32mINFO    [0m root:LoginPage.py:15 Воодим в поле: user
+[32mINFO    [0m root:conftest.py:169 изменили значение элемента
+[32mINFO    [0m root:LoginPage.py:47 находим поле Password и вводим данные: bitnami1
+[32mINFO    [0m root:LoginPage.py:33 находим поле password
+[32mINFO    [0m root:conftest.py:160 ищем элемент: input-password
+[32mINFO    [0m root:conftest.py:163 найден элемент: input-password
+[32mINFO    [0m root:LoginPage.py:36 Кликаем по полю
+[32mINFO    [0m root:conftest.py:166 кликнули по элементу: 
+[32mINFO    [0m root:LoginPage.py:39 Воодим в поле: bitnami1
+[32mINFO    [0m root:conftest.py:169 изменили значение элемента
+[32mINFO    [0m root:LoginPage.py:49 выполняет вход, по кнопке login
+[32mINFO    [0m root:conftest.py:160 ищем элемент: button[class = 'btn btn-primary']
+[32mINFO    [0m root:conftest.py:163 найден элемент: button[class = 'btn btn-primary']
+[32mINFO    [0m root:conftest.py:166 кликнули по элементу:
+[32mINFO    [0m root:CatalogPage.py:12 Открываем Каталог
+[32mINFO    [0m root:conftest.py:160 ищем элемент: menu-catalog
+[32mINFO    [0m root:conftest.py:163 найден элемент: menu-catalog
+[32mINFO    [0m root:conftest.py:166 кликнули по элементу: 
+[32mINFO    [0m root:CatalogPage.py:18 Ожидаем отображение раздела Products в меню навигации
+[32mINFO    [0m root:BasePage.py:19 Ожидаем на странице элемент
+[32mINFO    [0m root:conftest.py:160 ищем элемент: Products
+[32mINFO    [0m root:conftest.py:163 найден элемент: Products
+[32mINFO    [0m root:conftest.py:160 ищем элемент: Products
+[32mINFO    [0m root:conftest.py:163 найден элемент: Products
+[32mINFO    [0m root:conftest.py:166 кликнули по элементу: 
+[32mINFO    [0m root:CatalogPage.py:24 нажимаем кнопку добавить новый продукт
+[32mINFO    [0m root:conftest.py:160 ищем элемент: a[data-original-title = 'Add New']
+[32mINFO    [0m root:conftest.py:163 найден элемент: a[data-original-title = 'Add New']
+[32mINFO    [0m root:conftest.py:166 кликнули по элементу: 
+[32mINFO    [0m root:CatalogPage.py:30 Указываем наименование продукта: Ufwctnogqvc9371206472
+[32mINFO    [0m root:conftest.py:160 ищем элемент: input-name1
+[32mINFO    [0m root:conftest.py:163 найден элемент: input-name1
+[32mINFO    [0m root:conftest.py:169 изменили значение элемента
+[32mINFO    [0m root:CatalogPage.py:36 Указываем описание продукта: This is autoTesting description New Product in Catalog
+[32mINFO    [0m root:conftest.py:160 ищем элемент: div[class = 'note-editable panel-body']
+[32mINFO    [0m root:conftest.py:163 найден элемент: div[class = 'note-editable panel-body']
+[32mINFO    [0m root:conftest.py:169 изменили значение элемента
+[32mINFO    [0m root:CatalogPage.py:42 Указываем наименование продукта: Ufwctnogqvc9371206472
+[32mINFO    [0m root:conftest.py:160 ищем элемент: input-meta-title1
+[32mINFO    [0m root:conftest.py:163 найден элемент: input-meta-title1
+[32mINFO    [0m root:conftest.py:169 изменили значение элемента
+[32mINFO    [0m root:conftest.py:160 ищем элемент: Data
+[32mINFO    [0m root:conftest.py:163 найден элемент: Data
+[32mINFO    [0m root:conftest.py:166 кликнули по элементу: 
+[32mINFO    [0m root:CatalogPage.py:48 Указываем модель продукта: Product78729
+[32mINFO    [0m root:conftest.py:160 ищем элемент: input-model
+[32mINFO    [0m root:conftest.py:163 найден элемент: input-model
+[32mINFO    [0m root:conftest.py:169 изменили значение элемента
+[32mINFO    [0m root:CatalogPage.py:54 Выполняем сохранение
+[32mINFO    [0m root:conftest.py:160 ищем элемент: button[data-original-title = 'Save']
+[32mINFO    [0m root:conftest.py:163 найден элемент: button[data-original-title = 'Save']
+[32mINFO    [0m root:conftest.py:166 кликнули по элементу: 
+[32mINFO    [0m root:MainPage.py:41 Ожидаем сообщение
+[32mINFO    [0m root:BasePage.py:30 Ожидаем на странице элемент
+[32mINFO    [0m root:conftest.py:160 ищем элемент: div[class='alert alert-success alert-dismissible']
+[32mINFO    [0m root:conftest.py:163 найден элемент: div[class='alert alert-success alert-dismissible']
+[32mINFO    [0m root:conftest.py:160 ищем элемент: div[class='alert alert-success alert-dismissible']
+[32mINFO    [0m root:conftest.py:163 найден элемент: div[class='alert alert-success alert-dismissible']

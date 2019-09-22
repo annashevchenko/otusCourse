@@ -1,0 +1,37 @@
+root - INFO - находим поле Username и вводим данные: user
+root - INFO - находим поле Username
+root - INFO - ищем элемент: input-username
+root - INFO - найден элемент: input-username
+root - INFO - Кликаем по полю
+root - INFO - Воодим в поле: user
+root - INFO - изменили значение элемента
+root - INFO - находим поле Password и вводим данные: bitnami1
+root - INFO - находим поле password
+root - INFO - ищем элемент: input-password
+root - INFO - найден элемент: input-password
+root - INFO - Кликаем по полю
+root - INFO - кликнули по элементу: 
+root - INFO - Воодим в поле: bitnami1
+root - INFO - изменили значение элемента
+root - INFO - выполняет вход, по кнопке login
+root - INFO - ищем элемент: button[class = 'btn btn-primary']
+root - INFO - найден элемент: button[class = 'btn btn-primary']
+root - INFO - кликнули по элементу: 
+root - INFO - Открываем Каталог
+root - INFO - ищем элемент: menu-catalog
+root - INFO - найден элемент: menu-catalog
+root - INFO - кликнули по элементу: 
+root - INFO - Ожидаем отображение раздела Products в меню навигации
+root - INFO - Ожидаем на странице элемент
+root - INFO - ищем элемент: Products
+root - INFO - найден элемент: Products
+root - INFO - ищем элемент: Products
+root - INFO - найден элемент: Products
+root - INFO - кликнули по элементу: 
+root - INFO - Переходим на страницу: 2
+root - INFO - ищем элемент: *//ul[@class='pagination']//li//a[text()='2']
+root - INFO - найден элемент: *//ul[@class='pagination']//li//a[text()='2']
+root - INFO - кликнули по элементу: 
+root - INFO - Проверяем, что страница: 2 активна
+root - INFO - ищем элемент: *//ul[@class='pagination']//li[@class='active']//span[text()='2']
+root - INFO - найден элемент: *//ul[@class='pagination']//li[@class='active']//span[text()='2']
