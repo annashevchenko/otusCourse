@@ -2,6 +2,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
+
 def pytest_addoption(parser):
     parser.addoption(
         "--browser",
@@ -12,7 +13,7 @@ def pytest_addoption(parser):
     parser.addoption(
         "--url",
         action="store",
-        default="http://localhost/",
+        default="http://192.168.1.60",
         help="This is request url"
     )
 
@@ -25,15 +26,15 @@ def browser_grid(request):
         options = webdriver.ChromeOptions()
         options.add_argument('--start-maximized')
         caps = DesiredCapabilities.CHROME
-        wd = webdriver.Remote(command_executor='http://127.0.0.1:4444/wd/hub',
+        wd = webdriver.Remote(command_executor='http://192.168.1.60:4444/wd/hub',
                               desired_capabilities=caps, options=options)
         wd.get(request.config.getoption("--url"))
     elif browser == 'firefox':
         options = webdriver.FirefoxOptions()
         options.add_argument('--start-maximized')
         caps = DesiredCapabilities.FIREFOX
-        wd = webdriver.Remote(command_executor='http://127.0.0.1:4444/wd/hub',
-                               desired_capabilities=caps, options=options)
+        wd = webdriver.Remote(command_executor='http://192.168.1.60:4444/wd/hub',
+                              desired_capabilities=caps, options=options)
         wd.get(request.config.getoption("--url"))
     else:
         print('Unsupported browser!')

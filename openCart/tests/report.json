@@ -1,0 +1,196 @@
+{
+  "report": {
+    "environment": {
+      "Python": "3.6.8",
+      "Platform": "Linux-4.15.0-62-generic-x86_64-with-Ubuntu-18.04-bionic",
+      "dist": [
+        "Ubuntu",
+        "18.04",
+        "bionic"
+      ]
+    },
+    "tests": [
+      {
+        "name": "test_by_main.py::test_seach_by_text",
+        "duration": 3.606196880340576,
+        "run_index": 0,
+        "setup": {
+          "name": "setup",
+          "duration": 1.6575376987457275,
+          "outcome": "passed",
+          "metadata": {
+            "hoof": "doof"
+          }
+        },
+        "call": {
+          "name": "call",
+          "duration": 0.23048090934753418,
+          "outcome": "passed",
+          "metadata": {
+            "foo": "bar"
+          },
+          "stderr": "root - INFO - \u0412\u0432\u043e\u0434\u0438\u043c \u0432 \u043f\u043e\u043b\u0435 \u043f\u043e\u0438\u0441\u043a\u0430 \u0442\u0435\u043a\u0441\u0442: mac\nroot - INFO - \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: input[name='search']\nroot - INFO - \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: input[name='search']\nroot - INFO - \u0438\u0437\u043c\u0435\u043d\u0438\u043b\u0438 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u0430\nroot - INFO - \u041d\u0430\u0436\u0438\u043c\u0430\u0435\u043c \u043a\u043d\u043e\u043f\u043a\u0443 \u043f\u043e\u0438\u0441\u043a\u0430\nroot - INFO - \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: div[id = 'search'] button\nroot - INFO - \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: div[id = 'search'] button\nroot - INFO - \u043a\u043b\u0438\u043a\u043d\u0443\u043b\u0438 \u043f\u043e \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u0443: \nroot - INFO - \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//h1[text()='Search - mac']\nroot - INFO - \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//h1[text()='Search - mac']\n",
+          "log": "\u001b[32mINFO    \u001b[0m root:MainPage.py:11 \u0412\u0432\u043e\u0434\u0438\u043c \u0432 \u043f\u043e\u043b\u0435 \u043f\u043e\u0438\u0441\u043a\u0430 \u0442\u0435\u043a\u0441\u0442: mac\n\u001b[32mINFO    \u001b[0m root:conftest.py:108 \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: input[name='search']\n\u001b[32mINFO    \u001b[0m root:conftest.py:111 \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: input[name='search']\n\u001b[32mINFO    \u001b[0m root:conftest.py:117 \u0438\u0437\u043c\u0435\u043d\u0438\u043b\u0438 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u0430\n\u001b[32mINFO    \u001b[0m root:MainPage.py:16 \u041d\u0430\u0436\u0438\u043c\u0430\u0435\u043c \u043a\u043d\u043e\u043f\u043a\u0443 \u043f\u043e\u0438\u0441\u043a\u0430\n\u001b[32mINFO    \u001b[0m root:conftest.py:108 \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: div[id = 'search'] button\n\u001b[32mINFO    \u001b[0m root:conftest.py:111 \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: div[id = 'search'] button\n\u001b[32mINFO    \u001b[0m root:conftest.py:114 \u043a\u043b\u0438\u043a\u043d\u0443\u043b\u0438 \u043f\u043e \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u0443: \n\u001b[32mINFO    \u001b[0m root:conftest.py:108 \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//h1[text()='Search - mac']\n\u001b[32mINFO    \u001b[0m root:conftest.py:111 \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//h1[text()='Search - mac']"
+        },
+        "metadata": [
+          "whatever"
+        ],
+        "teardown": {
+          "name": "teardown",
+          "duration": 0.060640573501586914,
+          "outcome": "passed",
+          "metadata": {
+            "herp": "derp"
+          }
+        },
+        "outcome": "passed"
+      },
+      {
+        "name": "test_by_main.py::test_empty_cart",
+        "duration": 3.358457565307617,
+        "run_index": 1,
+        "setup": {
+          "name": "setup",
+          "duration": 1.6370856761932373,
+          "outcome": "passed",
+          "metadata": {
+            "hoof": "doof"
+          }
+        },
+        "call": {
+          "name": "call",
+          "duration": 0.01683664321899414,
+          "outcome": "passed",
+          "metadata": {
+            "foo": "bar"
+          },
+          "stderr": "root - INFO - \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//div[@id='cart']//p[text()='Your shopping cart is empty!']\nroot - INFO - \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//div[@id='cart']//p[text()='Your shopping cart is empty!']\n",
+          "log": "\u001b[32mINFO    \u001b[0m root:conftest.py:108 \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//div[@id='cart']//p[text()='Your shopping cart is empty!']\n\u001b[32mINFO    \u001b[0m root:conftest.py:111 \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//div[@id='cart']//p[text()='Your shopping cart is empty!']"
+        },
+        "metadata": [
+          "whatever"
+        ],
+        "teardown": {
+          "name": "teardown",
+          "duration": 0.06744956970214844,
+          "outcome": "passed",
+          "metadata": {
+            "herp": "derp"
+          }
+        },
+        "outcome": "passed"
+      },
+      {
+        "name": "test_by_main.py::test_open_by_directory",
+        "duration": 3.677281379699707,
+        "run_index": 2,
+        "setup": {
+          "name": "setup",
+          "duration": 1.6732659339904785,
+          "outcome": "passed",
+          "metadata": {
+            "hoof": "doof"
+          }
+        },
+        "call": {
+          "name": "call",
+          "duration": 0.25927257537841797,
+          "outcome": "passed",
+          "metadata": {
+            "foo": "bar"
+          },
+          "stderr": "root - INFO - \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: Desktops\nroot - INFO - \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: Desktops\nroot - INFO - \u043a\u043b\u0438\u043a\u043d\u0443\u043b\u0438 \u043f\u043e \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u0443: \nroot - INFO - \u041e\u0442\u043a\u0440\u044b\u0432\u0430\u0435\u043c \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440\u0438\u044e: Desktops\nroot - INFO - \u041e\u0436\u0438\u0434\u0430\u0435\u043c \u043d\u0430 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435 \u044d\u043b\u0435\u043c\u0435\u043d\u0442\nroot - INFO - \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//a[@aria-expanded='true'][text()='Desktops']\nroot - INFO - \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//a[@aria-expanded='true'][text()='Desktops']\nroot - INFO - \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//a[@aria-expanded='true'][text()='Desktops']\nroot - INFO - \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//a[@aria-expanded='true'][text()='Desktops']\nroot - INFO - \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: Mac (1)\nroot - INFO - \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: Mac (1)\nroot - INFO - \u043a\u043b\u0438\u043a\u043d\u0443\u043b\u0438 \u043f\u043e \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u0443: \nroot - INFO - \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: iMac\nroot - INFO - \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: iMac\n",
+          "log": "\u001b[32mINFO    \u001b[0m root:conftest.py:108 \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: Desktops\n\u001b[32mINFO    \u001b[0m root:conftest.py:111 \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: Desktops\n\u001b[32mINFO    \u001b[0m root:conftest.py:114 \u043a\u043b\u0438\u043a\u043d\u0443\u043b\u0438 \u043f\u043e \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u0443: \n\u001b[32mINFO    \u001b[0m root:MainPage.py:26 \u041e\u0442\u043a\u0440\u044b\u0432\u0430\u0435\u043c \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440\u0438\u044e: Desktops\n\u001b[32mINFO    \u001b[0m root:BasePage.py:30 \u041e\u0436\u0438\u0434\u0430\u0435\u043c \u043d\u0430 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435 \u044d\u043b\u0435\u043c\u0435\u043d\u0442\n\u001b[32mINFO    \u001b[0m root:conftest.py:108 \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//a[@aria-expanded='true'][text()='Desktops']\n\u001b[32mINFO    \u001b[0m root:conftest.py:111 \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//a[@aria-expanded='true'][text()='Desktops']\n\u001b[32mINFO    \u001b[0m root:conftest.py:108 \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//a[@aria-expanded='true'][text()='Desktops']\n\u001b[32mINFO    \u001b[0m root:conftest.py:111 \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//a[@aria-expanded='true'][text()='Desktops']\n\u001b[32mINFO    \u001b[0m root:conftest.py:108 \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: Mac (1)\n\u001b[32mINFO    \u001b[0m root:conftest.py:111 \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: Mac (1)\n\u001b[32mINFO    \u001b[0m root:conftest.py:114 \u043a\u043b\u0438\u043a\u043d\u0443\u043b\u0438 \u043f\u043e \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u0443: \n\u001b[32mINFO    \u001b[0m root:conftest.py:108 \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: iMac\n\u001b[32mINFO    \u001b[0m root:conftest.py:111 \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: iMac"
+        },
+        "metadata": [
+          "whatever"
+        ],
+        "teardown": {
+          "name": "teardown",
+          "duration": 0.07147693634033203,
+          "outcome": "passed",
+          "metadata": {
+            "herp": "derp"
+          }
+        },
+        "outcome": "passed"
+      },
+      {
+        "name": "test_by_main.py::test_open_product_cart",
+        "duration": 6.754657745361328,
+        "run_index": 3,
+        "setup": {
+          "name": "setup",
+          "duration": 1.610062599182129,
+          "outcome": "passed",
+          "metadata": {
+            "hoof": "doof"
+          }
+        },
+        "call": {
+          "name": "call",
+          "duration": 3.427891731262207,
+          "outcome": "passed",
+          "metadata": {
+            "foo": "bar"
+          },
+          "stderr": "root - INFO - \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: Components\nroot - INFO - \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: Components\nroot - INFO - \u043a\u043b\u0438\u043a\u043d\u0443\u043b\u0438 \u043f\u043e \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u0443: \nroot - INFO - \u041e\u0442\u043a\u0440\u044b\u0432\u0430\u0435\u043c \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440\u0438\u044e: Components\nroot - INFO - \u041e\u0436\u0438\u0434\u0430\u0435\u043c \u043d\u0430 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435 \u044d\u043b\u0435\u043c\u0435\u043d\u0442\nroot - INFO - \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//a[@aria-expanded='true'][text()='Components']\nroot - INFO - \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//a[@aria-expanded='true'][text()='Components']\nroot - INFO - \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//a[@aria-expanded='true'][text()='Components']\nroot - INFO - \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//a[@aria-expanded='true'][text()='Components']\nroot - INFO - \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: Monitors (2)\nroot - INFO - \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: Monitors (2)\nroot - INFO - \u043a\u043b\u0438\u043a\u043d\u0443\u043b\u0438 \u043f\u043e \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u0443: \nroot - INFO - \u041e\u0442\u043a\u0440\u044b\u0432\u0430\u0435\u043c \u043a\u0430\u0440\u0442\u043e\u0447\u043a\u0443: Apple Cinema 30\"\nroot - INFO - \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: div[class='product-thumb'] a img[title='Apple Cinema 30\"']\nroot - INFO - \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: div[class='product-thumb'] a img[title='Apple Cinema 30\"']\nroot - INFO - \u043a\u043b\u0438\u043a\u043d\u0443\u043b\u0438 \u043f\u043e \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u0443: \nroot - INFO - \u041d\u0430\u0445\u043e\u0434\u0438\u043c \u043d\u0430\u0438\u043c\u0435\u043d\u043e\u0432\u0430\u043d\u0438\u0435 \u043a\u0430\u0440\u0442\u043e\u0447\u043a\u0438: Apple Cinema 30\"\nroot - INFO - \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//div[@id='content']//h1[text()='Apple Cinema 30\"']\nroot - INFO - \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//div[@id='content']//h1[text()='Apple Cinema 30\"']\n",
+          "log": "\u001b[32mINFO    \u001b[0m root:conftest.py:108 \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: Components\n\u001b[32mINFO    \u001b[0m root:conftest.py:111 \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: Components\n\u001b[32mINFO    \u001b[0m root:conftest.py:114 \u043a\u043b\u0438\u043a\u043d\u0443\u043b\u0438 \u043f\u043e \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u0443: \n\u001b[32mINFO    \u001b[0m root:MainPage.py:26 \u041e\u0442\u043a\u0440\u044b\u0432\u0430\u0435\u043c \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440\u0438\u044e: Components\n\u001b[32mINFO    \u001b[0m root:BasePage.py:30 \u041e\u0436\u0438\u0434\u0430\u0435\u043c \u043d\u0430 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435 \u044d\u043b\u0435\u043c\u0435\u043d\u0442\n\u001b[32mINFO    \u001b[0m root:conftest.py:108 \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//a[@aria-expanded='true'][text()='Components']\n\u001b[32mINFO    \u001b[0m root:conftest.py:111 \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//a[@aria-expanded='true'][text()='Components']\n\u001b[32mINFO    \u001b[0m root:conftest.py:108 \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//a[@aria-expanded='true'][text()='Components']\n\u001b[32mINFO    \u001b[0m root:conftest.py:111 \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//a[@aria-expanded='true'][text()='Components']\n\u001b[32mINFO    \u001b[0m root:conftest.py:108 \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: Monitors (2)\n\u001b[32mINFO    \u001b[0m root:conftest.py:111 \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: Monitors (2)\n\u001b[32mINFO    \u001b[0m root:conftest.py:114 \u043a\u043b\u0438\u043a\u043d\u0443\u043b\u0438 \u043f\u043e \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u0443: \n\u001b[32mINFO    \u001b[0m root:MainPage.py:31 \u041e\u0442\u043a\u0440\u044b\u0432\u0430\u0435\u043c \u043a\u0430\u0440\u0442\u043e\u0447\u043a\u0443: Apple Cinema 30\"\n\u001b[32mINFO    \u001b[0m root:conftest.py:108 \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: div[class='product-thumb'] a img[title='Apple Cinema 30\"']\n\u001b[32mINFO    \u001b[0m root:conftest.py:111 \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: div[class='product-thumb'] a img[title='Apple Cinema 30\"']\n\u001b[32mINFO    \u001b[0m root:conftest.py:114 \u043a\u043b\u0438\u043a\u043d\u0443\u043b\u0438 \u043f\u043e \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u0443: \n\u001b[32mINFO    \u001b[0m root:MainPage.py:36 \u041d\u0430\u0445\u043e\u0434\u0438\u043c \u043d\u0430\u0438\u043c\u0435\u043d\u043e\u0432\u0430\u043d\u0438\u0435 \u043a\u0430\u0440\u0442\u043e\u0447\u043a\u0438: Apple Cinema 30\"\n\u001b[32mINFO    \u001b[0m root:conftest.py:108 \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//div[@id='content']//h1[text()='Apple Cinema 30\"']\n\u001b[32mINFO    \u001b[0m root:conftest.py:111 \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//div[@id='content']//h1[text()='Apple Cinema 30\"']"
+        },
+        "metadata": [
+          "whatever"
+        ],
+        "teardown": {
+          "name": "teardown",
+          "duration": 0.10664081573486328,
+          "outcome": "passed",
+          "metadata": {
+            "herp": "derp"
+          }
+        },
+        "outcome": "passed"
+      },
+      {
+        "name": "test_by_main.py::test_open_product_cart_add_in_wishList",
+        "duration": 4.8083226680755615,
+        "run_index": 4,
+        "setup": {
+          "name": "setup",
+          "duration": 1.5864574909210205,
+          "outcome": "passed",
+          "metadata": {
+            "hoof": "doof"
+          }
+        },
+        "call": {
+          "name": "call",
+          "duration": 1.5303707122802734,
+          "outcome": "passed",
+          "metadata": {
+            "foo": "bar"
+          },
+          "stderr": "root - INFO - \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: Components\nroot - INFO - \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: Components\nroot - INFO - \u043a\u043b\u0438\u043a\u043d\u0443\u043b\u0438 \u043f\u043e \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u0443: \nroot - INFO - \u041e\u0442\u043a\u0440\u044b\u0432\u0430\u0435\u043c \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440\u0438\u044e: Components\nroot - INFO - \u041e\u0436\u0438\u0434\u0430\u0435\u043c \u043d\u0430 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435 \u044d\u043b\u0435\u043c\u0435\u043d\u0442\nroot - INFO - \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//a[@aria-expanded='true'][text()='Components']\nroot - INFO - \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//a[@aria-expanded='true'][text()='Components']\nroot - INFO - \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//a[@aria-expanded='true'][text()='Components']\nroot - INFO - \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//a[@aria-expanded='true'][text()='Components']\nroot - INFO - \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: Monitors (2)\nroot - INFO - \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: Monitors (2)\nroot - INFO - \u043a\u043b\u0438\u043a\u043d\u0443\u043b\u0438 \u043f\u043e \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u0443: \nroot - INFO - \u041e\u0442\u043a\u0440\u044b\u0432\u0430\u0435\u043c \u043a\u0430\u0440\u0442\u043e\u0447\u043a\u0443: Apple Cinema 30\"\nroot - INFO - \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: div[class='product-thumb'] a img[title='Apple Cinema 30\"']\nroot - INFO - \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: div[class='product-thumb'] a img[title='Apple Cinema 30\"']\nroot - INFO - \u043a\u043b\u0438\u043a\u043d\u0443\u043b\u0438 \u043f\u043e \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u0443: \nroot - INFO - \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: div[class='btn-group'] button[data-original-title='Add to Wish List']\nroot - INFO - \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: div[class='btn-group'] button[data-original-title='Add to Wish List']\nroot - INFO - \u043a\u043b\u0438\u043a\u043d\u0443\u043b\u0438 \u043f\u043e \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u0443: \n",
+          "log": "\u001b[32mINFO    \u001b[0m root:conftest.py:108 \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: Components\n\u001b[32mINFO    \u001b[0m root:conftest.py:111 \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: Components\n\u001b[32mINFO    \u001b[0m root:conftest.py:114 \u043a\u043b\u0438\u043a\u043d\u0443\u043b\u0438 \u043f\u043e \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u0443: \n\u001b[32mINFO    \u001b[0m root:MainPage.py:26 \u041e\u0442\u043a\u0440\u044b\u0432\u0430\u0435\u043c \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440\u0438\u044e: Components\n\u001b[32mINFO    \u001b[0m root:BasePage.py:30 \u041e\u0436\u0438\u0434\u0430\u0435\u043c \u043d\u0430 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435 \u044d\u043b\u0435\u043c\u0435\u043d\u0442\n\u001b[32mINFO    \u001b[0m root:conftest.py:108 \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//a[@aria-expanded='true'][text()='Components']\n\u001b[32mINFO    \u001b[0m root:conftest.py:111 \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//a[@aria-expanded='true'][text()='Components']\n\u001b[32mINFO    \u001b[0m root:conftest.py:108 \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//a[@aria-expanded='true'][text()='Components']\n\u001b[32mINFO    \u001b[0m root:conftest.py:111 \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: *//a[@aria-expanded='true'][text()='Components']\n\u001b[32mINFO    \u001b[0m root:conftest.py:108 \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: Monitors (2)\n\u001b[32mINFO    \u001b[0m root:conftest.py:111 \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: Monitors (2)\n\u001b[32mINFO    \u001b[0m root:conftest.py:114 \u043a\u043b\u0438\u043a\u043d\u0443\u043b\u0438 \u043f\u043e \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u0443: \n\u001b[32mINFO    \u001b[0m root:MainPage.py:31 \u041e\u0442\u043a\u0440\u044b\u0432\u0430\u0435\u043c \u043a\u0430\u0440\u0442\u043e\u0447\u043a\u0443: Apple Cinema 30\"\n\u001b[32mINFO    \u001b[0m root:conftest.py:108 \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: div[class='product-thumb'] a img[title='Apple Cinema 30\"']\n\u001b[32mINFO    \u001b[0m root:conftest.py:111 \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: div[class='product-thumb'] a img[title='Apple Cinema 30\"']\n\u001b[32mINFO    \u001b[0m root:conftest.py:114 \u043a\u043b\u0438\u043a\u043d\u0443\u043b\u0438 \u043f\u043e \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u0443: \n\u001b[32mINFO    \u001b[0m root:conftest.py:108 \u0438\u0449\u0435\u043c \u044d\u043b\u0435\u043c\u0435\u043d\u0442: div[class='btn-group'] button[data-original-title='Add to Wish List']\n\u001b[32mINFO    \u001b[0m root:conftest.py:111 \u043d\u0430\u0439\u0434\u0435\u043d \u044d\u043b\u0435\u043c\u0435\u043d\u0442: div[class='btn-group'] button[data-original-title='Add to Wish List']\n\u001b[32mINFO    \u001b[0m root:conftest.py:114 \u043a\u043b\u0438\u043a\u043d\u0443\u043b\u0438 \u043f\u043e \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u0443:"
+        },
+        "metadata": [
+          "whatever"
+        ],
+        "teardown": {
+          "name": "teardown",
+          "duration": 0.10503697395324707,
+          "outcome": "passed",
+          "metadata": {
+            "herp": "derp"
+          }
+        },
+        "outcome": "passed"
+      }
+    ],
+    "summary": {
+      "passed": 5,
+      "num_tests": 5,
+      "duration": 14.06305742263794
+    },
+    "created_at": "2019-09-19 22:01:31.007817"
+  }
+}

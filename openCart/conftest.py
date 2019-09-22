@@ -1,5 +1,6 @@
 import datetime
 import pytest
+import platform
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.support.events import EventFiringWebDriver, AbstractEventListener
@@ -25,6 +26,60 @@ def pytest_addoption(parser):
         default="10",
         help="This is request url"
     )
+    parser.addoption(
+        "-E",
+        action="store",
+        metavar="NAME",
+        help="only run tests matching the environment NAME.")
+
+
+
+@pytest.mark.usefixtures("environment_info")
+@pytest.fixture(scope='session', autouse=True)
+def configure_html_report_env(request, environment_info):
+    request.config._metadata.update(
+        {"browser": request.config.getoption("--browser"),
+         "url": request.config.getoption("--url"),
+         "example": "this id tests by selenium in report"})
+    request.config._json_environment.append(("dist", environment_info[1]))
+    yield
+
+
+@pytest.hookimpl(tryfirst=True, hookwrapper=True)
+def pytest_runtest_makereport(item, call):
+    outcome = yield
+    report = outcome.get_result()
+    if report.when == 'call':
+        # only add this during call instead of during any stage
+        report.test_metadata = 'whatever'
+        # edit stage metadata
+        report.stage_metadata = {
+            'foo': 'bar'
+        }
+    elif report.when == 'setup':
+        report.stage_metadata = {
+            'hoof': 'doof'
+        }
+    elif report.when == 'teardown':
+        report.stage_metadata = {
+            'herp': 'derp'
+        }
+
+
+def pytest_configure(config):
+    config.addinivalue_line("markers", "env(name): mark test to run only on named environment")
+
+def pytest_runtest_setup(item):
+    envnames = [mark.args[0] for mark in item.iter_markers(name='env')]
+    if envnames:
+        if item.config.getoption("-E") not in envnames:
+            pytest.skip("test requires env in %r" % envnames)
+
+@pytest.fixture(scope="session")
+def environment_info():
+    os_platform = platform.platform()
+    linux_dist = platform.linux_distribution()
+    return os_platform, linux_dist
 
 
 @pytest.fixture()
@@ -62,6 +117,7 @@ def browser(request):
         print('Unsupported browser!')
     yield wd
     request.addfinalizer(wd.close)
+
 
 class MyListener(AbstractEventListener):
     def before_find(self, by, value, driver):

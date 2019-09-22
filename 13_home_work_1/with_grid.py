@@ -1,7 +1,4 @@
-import pytest
-
-
-def test_seach_by_text(browser_grid):
+def test_search_by_text(browser_grid):
     """Тест находит поле поиска, вводит в поле данны для поиска, нажимает кнопку найти. Находит заголовок результат поиска"""
     find_text = "mac"
     element = browser_grid.find_element_by_css_selector("input[name='search']")

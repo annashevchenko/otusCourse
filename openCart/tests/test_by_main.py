@@ -4,7 +4,6 @@ import pytest
 from openCart.pages.MainPage import MainPage
 from openCart.locators.MainLocators import MainLocators
 from openCart.locators.ProductCartLocators import ProductCartLocators
-from openCart.logging_openCart import logger
 
 
 @pytest.fixture
@@ -16,6 +15,7 @@ def fixture_create_random_string():
     return string_random
 
 
+@pytest.mark.env("regression")
 def test_seach_by_text(browser):
     """Тест находит поле поиска, вводит в поле данны для поиска, нажимает кнопку найти. Находит заголовок результат поиска"""
     find_text = "mac"
@@ -24,6 +24,7 @@ def test_seach_by_text(browser):
     browser.find_element_by_xpath(MainLocators.search_result.format(find_text))
 
 
+@pytest.mark.env("regression")
 def test_empty_cart(browser):
     """Тест находит пустую корзину, нажимает на нее и получает сообщение"""
     MainPage(browser).click_cart
@@ -31,6 +32,7 @@ def test_empty_cart(browser):
     browser.get_log('browser')
 
 
+@pytest.mark.env("regression")
 def test_open_by_directory(browser):
     """Тест открывает меню Desktops->Mac"""
     browser.find_element_by_link_text("Desktops").click()
@@ -39,6 +41,8 @@ def test_open_by_directory(browser):
     browser.find_element_by_link_text("iMac")
 
 
+@pytest.mark.env("regression")
+@pytest.mark.env("smoke")
 def test_open_product_cart(browser):
     """Тест открывает карточку продукта -> монитор Apple Cinema 30\""""
     browser.find_element_by_link_text("Components").click()
@@ -48,6 +52,8 @@ def test_open_product_cart(browser):
     MainPage(browser).product_header_cart_by_name("Apple Cinema 30\"")
 
 
+@pytest.mark.env("regression")
+@pytest.mark.env("smoke")
 def test_open_product_cart_add_in_wishList(browser):
     """Тест открывает карточку продукта ->Mонитор Apple Cinema 30\" и добавляет его в wishList"""
     browser.find_element_by_link_text("Components").click()
