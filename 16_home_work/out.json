@@ -1,0 +1,229 @@
+{
+    "by_method": {
+        "DELETE": 1,
+        "GET": 2247847,
+        "HEAD": 49971,
+        "PATCH": 0,
+        "POST": 918794,
+        "PUT": 70
+    },
+    "client_errs": [
+        {
+            "count": 1996,
+            "ip": "128.74.162.38",
+            "method": "GET",
+            "status": "404",
+            "url": "/apache-log/favicon.ico"
+        },
+        {
+            "count": 547,
+            "ip": "158.64.79.8",
+            "method": "GET",
+            "status": "404",
+            "url": "/templates/_system/css/general.css"
+        },
+        {
+            "count": 459,
+            "ip": "158.64.79.7",
+            "method": "GET",
+            "status": "404",
+            "url": "/templates/_system/css/general.css"
+        },
+        {
+            "count": 451,
+            "ip": "46.188.125.44",
+            "method": "GET",
+            "status": "404",
+            "url": "/apache-log/favicon.ico"
+        },
+        {
+            "count": 317,
+            "ip": "158.64.79.8",
+            "method": "GET",
+            "status": "404",
+            "url": "/favicon.ico"
+        },
+        {
+            "count": 276,
+            "ip": "85.10.113.129",
+            "method": "GET",
+            "status": "404",
+            "url": "/templates/_system/css/general.css"
+        },
+        {
+            "count": 228,
+            "ip": "62.46.187.218",
+            "method": "GET",
+            "status": "404",
+            "url": "/apple-touch-icon-precomposed.png"
+        },
+        {
+            "count": 228,
+            "ip": "62.46.187.218",
+            "method": "GET",
+            "status": "404",
+            "url": "/apple-touch-icon.png"
+        },
+        {
+            "count": 228,
+            "ip": "62.46.187.218",
+            "method": "GET",
+            "status": "404",
+            "url": "/favicon.ico"
+        },
+        {
+            "count": 220,
+            "ip": "91.113.15.50",
+            "method": "GET",
+            "status": "404",
+            "url": "/apple-touch-icon-precomposed.png"
+        }
+    ],
+    "server_errs": [
+        {
+            "count": 589,
+            "ip": "178.33.23.156",
+            "method": "POST",
+            "status": "500",
+            "url": "/administrator/index.php"
+        },
+        {
+            "count": 30,
+            "ip": "91.218.225.68",
+            "method": "GET",
+            "status": "500",
+            "url": "/index.php?option=com_content&view=9876sfi&id=49&Itemid=55"
+        },
+        {
+            "count": 30,
+            "ip": "91.218.225.68",
+            "method": "GET",
+            "status": "500",
+            "url": "/index.php?view=article&catid=34:raith&id=49:ferienwohnung-1&tmpl=component&print=1&layout=9876sfi&page=&option=com_content&Itemid=47"
+        },
+        {
+            "count": 22,
+            "ip": "91.218.225.68",
+            "method": "GET",
+            "status": "500",
+            "url": "/index.php?format=9876sfi&type=rss"
+        },
+        {
+            "count": 21,
+            "ip": "100.1.14.108",
+            "method": "HEAD",
+            "status": "500",
+            "url": "/index.php?option=com_content&view=article'A=0&id=46&Itemid=54"
+        },
+        {
+            "count": 19,
+            "ip": "91.218.225.68",
+            "method": "GET",
+            "status": "500",
+            "url": "/index.php?format=feed&type=9876sfi"
+        },
+        {
+            "count": 16,
+            "ip": "134.249.53.185",
+            "method": "GET",
+            "status": "500",
+            "url": "http://almhuette-raith.at/administrator/index.php"
+        },
+        {
+            "count": 15,
+            "ip": "79.62.229.212",
+            "method": "GET",
+            "status": "500",
+            "url": "/index.php?view=article&catid=34:raith&id=49:ferienwohnung-1&tmpl=component&print=1&layout=9876sfi&page=&option=com_content&Itemid=46"
+        },
+        {
+            "count": 12,
+            "ip": "176.31.226.22",
+            "method": "GET",
+            "status": "500",
+            "url": "/index.php?option=com_content&amp;view=frontpage//?mosConfig_absolute_path=http://aquaplant.com.ua/form/tpl/templates_d/logx???"
+        },
+        {
+            "count": 11,
+            "ip": "100.1.14.108",
+            "method": "GET",
+            "status": "500",
+            "url": "/index.php?option=com_content&view=article'A=0&id=46&Itemid=54"
+        }
+    ],
+    "top_ip": {
+        "149.56.83.40": 97533,
+        "193.106.31.130": 235209,
+        "198.50.156.189": 167812,
+        "5.112.235.245": 166722,
+        "5.113.18.208": 157674,
+        "5.113.216.211": 89125,
+        "5.114.231.216": 158258,
+        "5.114.64.184": 94043,
+        "79.62.229.212": 114759,
+        "91.218.225.68": 134366
+    },
+    "top_request": [
+        {
+            "ip": "100.1.14.108",
+            "method": "GET",
+            "time": 10000,
+            "url": "/templates/system/404.php"
+        },
+        {
+            "ip": "100.1.14.108",
+            "method": "GET",
+            "time": 9999,
+            "url": "/templates/atomic/system.php"
+        },
+        {
+            "ip": "100.1.14.108",
+            "method": "HEAD",
+            "time": 9998,
+            "url": "/images/eqzlht.php"
+        },
+        {
+            "ip": "85.25.210.234",
+            "method": "GET",
+            "time": 9997,
+            "url": "/index.php?option=com_phocagallery&view=category&id=1&Itemid=53"
+        },
+        {
+            "ip": "100.1.14.108",
+            "method": "GET",
+            "time": 9996,
+            "url": "/templates/beez5/fobp1nsfxrx.php"
+        },
+        {
+            "ip": "100.1.14.108",
+            "method": "GET",
+            "time": 9995,
+            "url": "/templates/beez3/html/com_content/backup.php"
+        },
+        {
+            "ip": "100.1.14.108",
+            "method": "GET",
+            "time": 9994,
+            "url": "/TDCDVQ"
+        },
+        {
+            "ip": "100.1.14.108",
+            "method": "GET",
+            "time": 9993,
+            "url": "/marvins.php"
+        },
+        {
+            "ip": "100.1.14.108",
+            "method": "GET",
+            "time": 9992,
+            "url": "/administrator/templates/isis/images/backup.php"
+        },
+        {
+            "ip": "100.1.14.108",
+            "method": "GET",
+            "time": 9991,
+            "url": "/images/sampledata/wpconfig-new.php"
+        }
+    ],
+    "total": 3216683
+}

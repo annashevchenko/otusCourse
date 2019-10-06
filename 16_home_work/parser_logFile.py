@@ -1,100 +1,112 @@
 import argparse
 import json
 import re
-from collections import Counter
+import typing
+
+LogLineInfo = typing.NamedTuple('LogLineInfo', [('ip', str),
+                                                ('method', str),
+                                                ('resource', str),
+                                                ('code', int),
+                                                ('bytes_cnt', int),
+                                                ('from_address', str),
+                                                ('user_agent', str),
+                                                ('time_ms', int)])
+
+
+def make_errs_dict(spec_line, count):
+    (method, url, status, ip) = spec_line.split('#')
+    return {'method': method, 'url': url, 'status': status, 'ip': ip, 'count': count}
+
+
+def process(filename: str):
+    # общее число валидных запросов
+    total = 0
+    # число запросов по методам
+    call_by_methods = {'GET': 0, 'HEAD': 0, 'POST': 0, 'PUT': 0, 'DELETE': 0, 'PATCH': 0}
+    # список ip адресов
+    ip_address = {}
+    # запросы по времени
+    req_by_time = {}
+    # клиентские и серверные ошибки
+    client_errs = {}
+    server_errs = {}
+    with open(filename, "r") as file:
+        for line in file:
+            log_line_info = create_info(line)
+            if log_line_info is None:
+                continue
+            # инкремент по числу запросов
+            total += 1
+            # инкремент по типу метода
+            call_by_methods[log_line_info.method] += 1
+            # счетчик по ip адресам
+            if ip_address.get(log_line_info.ip) is None:
+                ip_address[log_line_info.ip] = 0
+            ip_address[log_line_info.ip] += 1
+            # записываем информацию по времени запроса
+            req_by_time[log_line_info.time_ms] = {'method': log_line_info.method,
+                                                  'url': log_line_info.resource,
+                                                  'ip': log_line_info.ip,
+                                                  'time': log_line_info.time_ms}
+            # сохраняем информацию по клиентским ошибкам и серверным ошибкам
+            code = log_line_info.code // 100
+            if code == 4 or code == 5:
+                key = log_line_info.method + '#' + log_line_info.resource + '#' \
+                      + str(log_line_info.code) + '#' + str(log_line_info.ip)
+                if code == 4:
+                    errs = client_errs
+                else:
+                    errs = server_errs
+                if errs.get(key) is None:
+                    errs[key] = 0
+                errs[key] += 1
+
+    # вычисляем топ 10 ip адресов
+    ip_address_sorted = [(k, ip_address[k]) for k in sorted(ip_address, key=ip_address.get, reverse=True)][:10]
+    ip_address_top = {k: v for (k, v) in ip_address_sorted}
+    # вычисляем топ 10 самых долгих запросов
+    req_by_time_sorted = [(k, req_by_time[k]) for k in sorted(req_by_time, reverse=True)][:10]
+    req_by_time_top = [v for k, v in req_by_time_sorted]
+    # вычисляем топ 10 запросов которые завершились клиентской ошибкой
+    client_errs_sorted = [(k, client_errs[k]) for k in sorted(client_errs, key=client_errs.get, reverse=True)][:10]
+    client_errs_top = [make_errs_dict(k, v) for k, v in client_errs_sorted]
+    # вычисляем топ 10 запросов которые завершились серверной ошибкой
+    server_errs_sorted = [(k, server_errs[k]) for k in sorted(server_errs, key=server_errs.get, reverse=True)][:10]
+    server_errs_top = [make_errs_dict(k, v) for k, v in server_errs_sorted]
+
+    return {'total': total,
+            'by_method': call_by_methods,
+            'top_ip': ip_address_top,
+            'top_request': req_by_time_top,
+            'client_errs': client_errs_top,
+            'server_errs': server_errs_top}
+
+
+def create_info(line: str):
+    regexp = r'(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}).+"(GET|HEAD|POST|PUT|DELETE|PATCH) (.*) HTTP\/1\.\d{1}" (\d{3}) (\d{1,10}|-) "(.*)" "(.*)" (\d{1,10})'
+    log_str = re.search(regexp, line)
+    if log_str is None:
+        return None
+    ip = log_str.groups()[0]
+    method = log_str.groups()[1]
+    resource = log_str.groups()[2]
+    code = int(log_str.groups()[3])
+    try:
+        bytes_cnt = int(log_str.groups()[4])
+    except ValueError:
+        bytes_cnt = -1
+    from_address = log_str.groups()[5]
+    user_agent = log_str.groups()[6]
+    time_ms = int(log_str.groups()[7])
+    info = LogLineInfo(ip, method, resource, code, bytes_cnt, from_address, user_agent, time_ms)
+    return info
+
 
 parser = argparse.ArgumentParser(description='Great Description To Be Here')
 parser.add_argument('-logfile', action='store', dest='file', help='specify log file')
 parser.add_argument('-logdir', action='store', dest='dir', help='specify log dir')
 arg = parser.parse_args()
 
-dist_ip = {}
-dist_ip_count = {}
-ips_list = []
-log_line_str = ''
-dist_log_line_str = {}
-dict_by_http_code = {}
-
-
-def reader_file(filename):
-    # пробуем открыть файл для чтения, иначе ошибка
-    try:
-        with open(filename) as file:
-            log = file.readlines()
-        ip_num = 0
-        for line in log:
-            # регулярка для ip
-            ip = r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}'
-            search = re.search(ip, line)
-            ip_num += 1
-            # регулярка для строки лога: группа для ip, метода, url, код ответа, время запроса
-            logstr = re.search(
-                r'(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}).+"(GET|POST|DELETE|PUT|HEAD) (.*") ([0-9]{3}) ([0-9].*)', line)
-            # если в строке лога нет данных по ip пропускаем эту строку
-            if search is None:
-                continue
-            # если в строке лога нет данных по  ip, методу, url, код ответа, время запроса пропускаем эту строку
-            if logstr is None:
-                continue
-            ip_list = search.group()
-            # список всех ip-ков из логов
-            ips_list.append(ip_list)
-            # регулярка по методу, если в строке лога не встретили метод пропускаем строку
-            search = re.search(r'\] \"(GET|POST|DELETE|PUT|HEAD)', line)
-            if search is None:
-                continue
-            # вытасткиваем из строки лога url, код ответа, время запроса, метод
-            url = logstr.groups()[2]
-            code = logstr.groups()[3]
-            time_req = logstr.groups()[4]
-            method = search.groups()[0]
-            # записываем в строку полученные из лога данные
-            log_line_str = ip_list + ' ' + method + ' ' + url + ' ' + time_req
-            log_line_code = ip_list + ' ' + method + ' ' + url + ' ' + code
-            # записываем в словарь данные с кодом ответа
-            dist_log_line_str[int(time_req)] = log_line_str
-            if dict_by_http_code.get(code) == None:
-                dict_by_http_code[code] = list()
-            dict_by_http_code[code].append(log_line_code)
-            # считаем количество запросов по типу метода
-            if dist_ip.get(ip, None) is None:
-                dist_ip[ip] = {
-                    'GET': 0,
-                    'POST': 0,
-                    'DELETE': 0,
-                    'PUT': 0,
-                    'HEAD': 0
-                }
-            dist_ip[ip][method] += 1
-        # преобразуем список ip-ков в словарь с указанием количества  ip-ков
-        dist_ip_count = Counter(ips_list)
-        # выбираем 5 ip-ков с наиблоьшим числом обращений
-        output_max_ip = dict(dist_ip_count.most_common()[:5])
-        # формируем данные со временем  долгих запросов, выбираем 5 записей
-        # список со временем
-        keys = list(dist_log_line_str.keys())
-        keys.sort(reverse=True)
-        keys = keys[:5]
-        output_max_time_req = ''
-        for key in keys:
-            output_max_time_req += dist_log_line_str[key] + '\n'
-        # формируем по запросам с ошибками, выбираем из них 5 штук
-        errors = list()
-        for code in dict_by_http_code:
-            if code != '200':
-                errors.extend(dict_by_http_code[code])
-        output_code_error = "\n".join(errors[:5])
-        # выводим на печать
-        print("количество общее количество выполненных запросов: " + ip_num.__str__())
-        print(json.dumps(dist_ip, indent=4))
-        print(" топ 5 IP адресов, с которых были сделаны запросы: ")
-        print(output_max_ip)
-        print(" топ 5 IP адресов,  самых долгих запросов: ")
-        print(output_max_time_req)
-        print(" запросов, которые завершились ошибкой: ")
-        print(output_code_error)
-    except IOError:
-        print("Error: File does not appear to exist.")
-
-
-reader_file(arg.file)
+file_log = process(arg.file)
+app_json = json.dumps(file_log, sort_keys=True, indent=4)
+print(app_json)
