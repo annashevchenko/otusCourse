@@ -1,1 +1,5 @@
 .idea
+hw-env
+**/__pycache__/
+**/screenshorts/
+**/*.log
