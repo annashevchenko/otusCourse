@@ -4,13 +4,13 @@ import sys
 import allure
 import pytest
 import platform
-
+import pymysql
 from allure_commons.types import AttachmentType
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.support.events import EventFiringWebDriver, AbstractEventListener
 from openCart.logging_openCart import logger
-
+from sqlalchemy.connectors import pyodbc
 
 def pytest_addoption(parser):
     parser.addoption(
@@ -155,6 +155,7 @@ def pytest_exception_interact(node, call, report):
         pass
 
 
+
 class MyListener(AbstractEventListener):
     def before_find(self, by, value, driver):
         logger.info(msg="ищем элемент: " + value)
@@ -173,3 +174,8 @@ class MyListener(AbstractEventListener):
         driver.save_screenshot("/home/anna/PycharmProjects/homework/openCart/screenshorts/" + screen_file_name)
         allure.attach('screenshot', driver.get_screenshot_as_png(), type=AttachmentType.PNG)
         return screen_file_name
+
+
+
+
+

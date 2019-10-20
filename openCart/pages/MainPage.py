@@ -16,6 +16,26 @@ class MainPage(BasePage):
         logger.info("Нажимаем кнопку поиска")
         self.driver.find_element_by_css_selector(MainLocators.search_button).click()
 
+    # нажимаем ссылку на наименовании продукта
+    def click_product_link(self, text):
+        logger.info("Нажимаем ссылку на наименовании продукта")
+        self.driver.find_element_by_xpath(MainLocators.product).click()
+
+    # нажимаем кнопку добавить в корзину
+    def click_add_cart(self):
+        logger.info("Нажимаем добавить в корзину")
+        self.driver.find_element_by_xpath(MainLocators.add_to_cart).click()
+
+    # нажимаем на содержимое корзины
+    def click_item_cart(self):
+        logger.info("Нажимаем на содержимое корзины")
+        self.driver.find_element_by_css_selector(MainLocators.item_cart).click()
+
+    # нажимаем на Checkout
+    def click_button_Checkout(self):
+        logger.info("Нажимаем на Checkout")
+        self.driver.find_element_by_xpath(MainLocators.button_Checkout).click()
+
     # нажимаем корзину
     def click_cart(self):
         logger.info("Нажимаем на корзину")
@@ -50,3 +70,14 @@ class MainPage(BasePage):
     def shopping_cart(self):
         logger.info("Находим Shopping Cart и кликаем по нему")
         self.driver.find_element_by_css_selector(MainLocators.shopping_cart).click()
+
+    # находим сообщение об успешно выполненном заказе
+    def product_header_order_place(self, text):
+        logger.info("Находим сообщение об успешно выполненном заказе : " + text)
+        self.driver.find_element_by_xpath(MainLocators.heading.format(text))
+
+    # находим кнопку продолжить
+    def button_сontinue(self):
+        logger.info("Находим кнопку продолжить")
+        self.driver.find_element_by_xpath(MainLocators.сontinue)
+

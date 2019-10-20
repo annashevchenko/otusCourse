@@ -24,6 +24,18 @@ class MainLocators:
     '''сообщение о пустой корзине'''
     directory = "*//a[text()='{0}']"
 
+    '''продукт'''
+    product = "*//a[text()='{0}']"
+
+    '''добавить в корзину'''
+    add_to_cart = "*//span[text()='Add to Cart']"
+
+    '''добавить в корзину'''
+    item_cart = "span[id='cart-total']"
+
+    '''нажимаем на Checkout'''
+    button_Checkout = "*//span[text()='Checkout']"
+
     '''поиск сообщения после успешных действий  над продуктом продукта'''
     mess = "div[class='alert alert-success alert-dismissible']"
 
@@ -32,3 +44,6 @@ class MainLocators:
 
     '''находим заголовок'''
     heading = "*//h1[text()='{0}']"
+
+    '''кнопка продолжить'''
+    сontinue = "*//a[text()='Continue']"
