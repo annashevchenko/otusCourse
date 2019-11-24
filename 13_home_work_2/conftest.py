@@ -1,7 +1,5 @@
 import pytest
 from selenium import webdriver
-from openCart.locators import CustomerLocations, LoginLocators
-from openCart.pages import CustomerPage, LoginPage
 
 desired_cap = {
     'browser': 'Chrome',
