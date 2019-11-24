@@ -1,8 +1,7 @@
-import pytest
 from selenium.webdriver.common.action_chains import ActionChains
 
 
-def test_use_drag_and_drog(driver):
+def test_use_drag_and_drop(driver):
     """Тест использует инструмент drag_and_drop для переноса в корзину элементов"""
     # находим корзину, в которую будут перенесены элементы
     element_trash = driver.find_element_by_css_selector("div[class='trash']")
