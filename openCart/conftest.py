@@ -1,16 +1,15 @@
 import datetime
-import sys
+import platform
 
 import allure
 import pytest
-import platform
-import pymysql
 from allure_commons.types import AttachmentType
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.support.events import EventFiringWebDriver, AbstractEventListener
+
 from openCart.logging_openCart import logger
-from sqlalchemy.connectors import pyodbc
+
 
 def pytest_addoption(parser):
     parser.addoption(

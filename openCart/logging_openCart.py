@@ -96,7 +96,7 @@ class DbHandler(logging.Handler):
         return '<%s (%s)>' % (self.__class__.__name__, level)
 
 
-logger_db_handler = DbHandler()
-logger_db_handler.setLevel(LOG_LEVEL)
-logger_db_handler.setFormatter(Formatter(LOG_FORMAT_DB))
-logger.addHandler(logger_db_handler)
+# logger_db_handler = DbHandler()
+# logger_db_handler.setLevel(LOG_LEVEL)
+# logger_db_handler.setFormatter(Formatter(LOG_FORMAT_DB))
+# logger.addHandler(logger_db_handler)

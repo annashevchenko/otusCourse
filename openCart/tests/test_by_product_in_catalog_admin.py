@@ -1,10 +1,8 @@
-import datetime
 import random
 import string
 
 import allure
 import pytest
-from allure_commons.types import AttachmentType
 from selenium.webdriver.common.alert import Alert
 
 from openCart.pages.CatalogPage import CatalogPage

@@ -47,3 +47,6 @@ class MainLocators:
 
     '''кнопка продолжить'''
     сontinue = "*//a[text()='Continue']"
+
+    '''кнопка закрыть сообщение'''
+    button_close_mess ="button[type='button'][class='close']"
