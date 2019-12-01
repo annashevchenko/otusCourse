@@ -21,7 +21,8 @@ def pytest_addoption(parser):
     parser.addoption(
         "--url",
         action="store",
-        default="http://localhost/",
+        # default="http://localhost/",
+        default="https://demo.opencart.com/",
         help="This is request url"
     )
     parser.addoption(
@@ -100,7 +101,7 @@ def browser(request):
     wd = None
     if browser == 'chrome':
         options = webdriver.ChromeOptions()
-        options.add_argument('--headless')
+        #options.add_argument('--headless')
         options.add_argument('--start-maximized')
         options.add_experimental_option('w3c', False)
         caps = DesiredCapabilities.CHROME

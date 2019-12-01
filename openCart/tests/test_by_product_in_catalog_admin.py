@@ -32,7 +32,8 @@ def url_admin(browser, request):
 def fixture_authorization_admin(browser, url_admin):
     """эта фикстура выполняет авторизацию под админом"""
     browser.get_log("browser")
-    LoginPage(browser).login_on_page("user", "bitnami1")
+    # LoginPage(browser).login_on_page("user", "bitnami1")
+    LoginPage(browser).login_on_page("demo", "demo")
 
 
 @allure.severity(allure.severity_level.CRITICAL)
