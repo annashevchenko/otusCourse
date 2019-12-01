@@ -2,7 +2,7 @@ import logging
 from logging import FileHandler
 from logging import Formatter
 
-import psycopg2
+#import psycopg2
 
 # формат логов
 LOG_FORMAT_FILE = (
@@ -38,62 +38,62 @@ logger.addHandler(logger_stream_handler)
 
 # пишем логи в базу
 
-class DbHandler(logging.Handler):
-    """
-    A handler class which writes formatted logging records to db
-    """
-
-    def __init__(self):
-        """
-        Open the specified file and use it as the stream for logging.
-        """
-        logging.Handler.__init__(self)
-        self.connection = None
-        self.cursor = None
-        self.connect_database()
-
-    def close(self):
-        """
-        Closes the stream.
-        """
-        self.acquire()
-        try:
-            try:
-                self.cursor.close()
-            finally:
-                pass
-            try:
-                self.connection.close()
-            finally:
-                pass
-            logging.Handler.close(self)
-        finally:
-            self.release()
-
-    def connect_database(self):
-        self.connection = psycopg2.connect(user="postgres",
-                                           password="postgres",
-                                           host="127.0.0.1",
-                                           port="5432",
-                                           database="testlog")
-        self.cursor = self.connection.cursor()
-        pass
-
-    def emit(self, record):
-        """
-        Emit a record.
-
-        If the stream was not opened because 'delay' was specified in the
-        constructor, open it before calling the superclass's emit.
-        """
-        sql = 'INSERT INTO main.logs (datetime, type, logs) VALUES (' + LOG_FORMAT_DB + ')'
-        message_ = sql % {'level': record.levelname, 'message': record.message.replace("'", "''")}
-        self.cursor.execute(message_)
-        self.connection.commit()
-
-    def __repr__(self):
-        level = logging.getLevelName(self.level)
-        return '<%s (%s)>' % (self.__class__.__name__, level)
+# class DbHandler(logging.Handler):
+#     """
+#     A handler class which writes formatted logging records to db
+#     """
+#
+#     def __init__(self):
+#         """
+#         Open the specified file and use it as the stream for logging.
+#         """
+#         logging.Handler.__init__(self)
+#         self.connection = None
+#         self.cursor = None
+#         self.connect_database()
+#
+#     def close(self):
+#         """
+#         Closes the stream.
+#         """
+#         self.acquire()
+#         try:
+#             try:
+#                 self.cursor.close()
+#             finally:
+#                 pass
+#             try:
+#                 self.connection.close()
+#             finally:
+#                 pass
+#             logging.Handler.close(self)
+#         finally:
+#             self.release()
+#
+#     def connect_database(self):
+#         self.connection = psycopg2.connect(user="postgres",
+#                                            password="postgres",
+#                                            host="127.0.0.1",
+#                                            port="5432",
+#                                            database="testlog")
+#         self.cursor = self.connection.cursor()
+#         pass
+#
+#     def emit(self, record):
+#         """
+#         Emit a record.
+#
+#         If the stream was not opened because 'delay' was specified in the
+#         constructor, open it before calling the superclass's emit.
+#         """
+#         sql = 'INSERT INTO main.logs (datetime, type, logs) VALUES (' + LOG_FORMAT_DB + ')'
+#         message_ = sql % {'level': record.levelname, 'message': record.message.replace("'", "''")}
+#         self.cursor.execute(message_)
+#         self.connection.commit()
+#
+#     def __repr__(self):
+#         level = logging.getLevelName(self.level)
+#         return '<%s (%s)>' % (self.__class__.__name__, level)
 
 
 # logger_db_handler = DbHandler()

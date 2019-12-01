@@ -100,12 +100,12 @@ def browser(request):
     wd = None
     if browser == 'chrome':
         options = webdriver.ChromeOptions()
-        # options.add_argument('--headless')
+        options.add_argument('--headless')
         options.add_argument('--start-maximized')
         options.add_experimental_option('w3c', False)
         caps = DesiredCapabilities.CHROME
         caps['loggingPrefs'] = {'browser': 'INFO'}
-        wd = EventFiringWebDriver(webdriver.Chrome(desired_capabilities=caps, options=options), MyListener())
+        wd = EventFiringWebDriver(webdriver.Chrome(executable_path='./chromedriver', desired_capabilities=caps, options=options), MyListener())
         wd.implicitly_wait(request.config.getoption("--wait"))
         wd.get(request.config.getoption("--url"))
     elif browser == 'firefox':
