@@ -3,3 +3,4 @@ hw-env
 **/__pycache__/
 **/screenshorts/
 **/*.log
+**/allure-report/

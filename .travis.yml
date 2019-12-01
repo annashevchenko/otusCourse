@@ -10,4 +10,4 @@ before_install:
   - pip install -r requirements.txt
 #install:
 #  - pip install ".[test]" . # install package + test dependencies
-script: cd openCart/tests && pytest test_by_product_in_catalog_admin.py # run tests
+script: pytest openCart/tests/test_by_main.py # run tests
