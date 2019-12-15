@@ -7,6 +7,7 @@ from module_32_using_mock.wink.wink_processor import get_kids_result
 from unittest.mock import patch
 
 
+# обращаемся к внешнему сервису не использя mock
 def test_get_media_items():
     kids = get_kids_result()
     assertions(kids)
@@ -21,7 +22,7 @@ def mock():
 def mocked_session():
     yield Session('TEST_SESSION_ID', 'UNAUTHORIZED')
 
-
+# обращаемся к внешнему сервису используя mock
 def test_get_media_items_mocked(mock):
     with patch('module_32_using_mock.wink.wink_processor.make_depersonalized_session', side_effect=mocked_session()):
         mock.get(LIST_MOVIES_URL, text='{"id": 28, "name": "Детям", "alias": "kids",'
