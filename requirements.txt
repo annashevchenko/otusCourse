@@ -4,4 +4,4 @@ selenium==3.141.0
 allure-pytest==2.7.0
 pytest-html==2.0.1
 pytest-json==0.4.0
-paramiko==2.6.0
+paramiko==2.10.1
